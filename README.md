@@ -17,9 +17,12 @@
 レシピを考え共有する時、他人の考えたレシピを検索するとき、食材の仕入れ先を確認する時
 
 ## 設計書
-ER図=> https://app.diagrams.net/#G13bIaWgk7A4ziC3DsL9agdgXXryocv2lh
-テーブル定義書=> https://docs.google.com/spreadsheets/d/1beDCCS08O2-0Ik3nAlKpgJ2EngM19sKJ5lFw5LC6CP0/edit#gid=1969842573
-詳細設計=> https://docs.google.com/spreadsheets/d/1tC_O8seSuKfbPcqK-iTdzAg7ny14IrMaQBjyBxMuO8Q/edit#gid=0
+### ER図
+https://app.diagrams.net/#G13bIaWgk7A4ziC3DsL9agdgXXryocv2lh
+### テーブル定義書
+https://docs.google.com/spreadsheets/d/1beDCCS08O2-0Ik3nAlKpgJ2EngM19sKJ5lFw5LC6CP0/edit#gid=1969842573
+### 詳細設計
+https://docs.google.com/spreadsheets/d/1tC_O8seSuKfbPcqK-iTdzAg7ny14IrMaQBjyBxMuO8Q/edit#gid=0
 
 ## 開発環境
 - OS：Linux(CentOS)
