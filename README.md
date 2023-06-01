@@ -27,6 +27,8 @@ https://app.diagrams.net/#G13bIaWgk7A4ziC3DsL9agdgXXryocv2lh
 https://docs.google.com/spreadsheets/d/1beDCCS08O2-0Ik3nAlKpgJ2EngM19sKJ5lFw5LC6CP0/edit#gid=1969842573
 ### 詳細設計
 https://docs.google.com/spreadsheets/d/1tC_O8seSuKfbPcqK-iTdzAg7ny14IrMaQBjyBxMuO8Q/edit#gid=0
+### ワイヤーフレーム
+https://docs.google.com/presentation/d/12HKWt7LmuhMZbs4aFCOZOSZkD1VIYGFNd0W1kgDkrCI/edit#slide=id.g24ce8edb785_0_115
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -34,3 +36,6 @@ https://docs.google.com/spreadsheets/d/1tC_O8seSuKfbPcqK-iTdzAg7ny14IrMaQBjyBxMu
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 使用素材
+- [Font Awesome] https://fontawesome.com/
