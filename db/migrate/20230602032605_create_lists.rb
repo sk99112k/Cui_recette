@@ -1,0 +1,14 @@
+class CreateLists < ActiveRecord::Migration[6.1]
+  def change
+    create_table :lists do |t|
+      t.string :ingredient, null: false
+      t.integer :price,     null: false
+      t.string :supplier,   null: false
+      t.integer :lot,       null: false
+      t.string :unit,       null: false
+      t.integer :recipe_id, null: false
+
+      t.timestamps
+    end
+  end
+end
