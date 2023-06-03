@@ -1,6 +1,11 @@
 class Recipe < ApplicationRecord
 
   has_one_attached :image
+  
+  belongs_to :member
+  has_many :book_marks, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :lists, dependent: :destroy
 
   def get_image(width, height)
     unless image.attached?

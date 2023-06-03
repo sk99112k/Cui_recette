@@ -1,2 +1,29 @@
-<h1>Public::Members#edit</h1>
-<p>Find me in app/views/public/members/edit.html.erb</p>
+
+
+  
+      <%= form_with model: @member, url: member_path(@member), method: :patch do |f| %>
+      <table>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :名前 %></th>
+            <th><%= f.text_field :name %></th>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :メールアドレス %></th>
+            <th><%= f.text_field :email %></th>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :パスワード %></th>
+            <th><%=f.text_field :encrypted_password %></th>
+          </div>
+        </tr>
+      </table>
+      <%= f.submit "変更内容を保存", class:"btn btn-warning" %>
+      <% end %>
+    </div>
+  </div>
+</div>
