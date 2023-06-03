@@ -8,14 +8,10 @@ class Public::MembersController < ApplicationController
     @recipes = Recipe.all
   end
 
-  def edit
-    @member = current_member
-  end
-  
   private
-  
+
   def member_params
     params.require(:member).permit(:name, :email)
-  end 
-  
+  end
+
 end
