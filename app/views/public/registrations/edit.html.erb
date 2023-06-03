@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-8">
       <h3><%= @member.name %> さんの編集画面</h3>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-10 px-sm-0 mx-auto mb-5">
+    <div class="mx-auto">
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
