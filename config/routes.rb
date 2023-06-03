@@ -19,8 +19,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get "/about" => "homes#about"
-    resources :members ,only: [:show, :index, :update]
-    get "/members/information/edit" => "members#edit"
+    resources :members ,only: [:show, :index]
     resources :lists, only: [:new, :create, :show, :index, :edit, :update, :destroy]
     resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       resource :book_marks, only: [:create, :destroy]
