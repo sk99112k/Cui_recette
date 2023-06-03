@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <%#= render 'layouts_flash' %>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      
+    </footer>
   </body>
 </html>
