@@ -1,2 +1,37 @@
-<h1>Public::Lists#index</h1>
-<p>Find me in app/views/public/lists/index.html.erb</p>
+<%= link_to "食材投稿", new_list_path %>
+
+<div class="container">
+  <div class="row">
+    <div class="mx-auto offset-sm-1">
+      <h3 class="m-5">食材一覧</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-xs-12"  style="background:#F5DEB3; border-radius: 30px;">
+      <div class="list mt-4 text-center">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th>食材</th>
+              <th>仕入れ先</th>
+              <th>仕入れロット数</th>
+              <th>値段</th>
+            </tr>
+          </thead>
+          <% @lists.each do |list| %>
+          <tbody>
+            <tr>
+              <td><%= list.ingredient %></td>
+              <td><%= list.supplier %></td>
+              <td><%= list.lot %> <%= list.unit %></td>
+              <td><%= list.price %></td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

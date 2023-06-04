@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-6 col-xs-12"  style="background:#DEB887; border-radius: 30px;">
+    <div class="col-md-6 col-xs-12"  style="background:#F5DEB3; border-radius: 30px;">
     
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
@@ -14,24 +14,24 @@
       <div class="field mt-4 text-center">
         <table class="table table-borderless">
           <tr>
-            <th><%= f.label :name, "名前" %></th>
-            <th><%= f.text_field :name, autofocus: true, autocomplete: "name" %></th>
+            <td><%= f.label :name, "名前" %></td>
+            <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
           </tr>
           <tr>
-            <th><%= f.label :email, "メールアドレス" %></th>
-            <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+            <td><%= f.label :email, "メールアドレス" %></td>
+            <td><%= f.email_field :email, autocomplete: "email" %></td>
           </tr>
           <tr>
-            <th><%= f.label :password, "パスワード(6文字以上)" %></th>
-            <th><%= f.password_field :password, autocomplete: "new-password" %></th>
+            <td><%= f.label :password, "パスワード(6文字以上)" %></td>
+            <td><%= f.password_field :password, autocomplete: "new-password" %></td>
           </tr>
           <tr>
-            <th><%= f.label :password_confirmation, "確認用のパスワード" %></th>
-            <th><%= f.password_field :password_confirmation, autocomplete: "new-password" %></th>
+            <td><%= f.label :password_confirmation, "確認用のパスワード" %></td>
+            <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
           </tr>
           <tr>
-            <th></th>
-            <th><%= f.submit "新規登録" %></th>
+            <td></td>
+            <td><%= f.submit "新規登録" %></td>
           </tr>
         </table>
       </div>

@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 2023_06_03_034836) do
     t.string "ingredient", null: false
     t.integer "price", null: false
     t.string "supplier", null: false
-    t.integer "lot", null: false
+    t.float "lot", null: false
     t.string "unit", null: false
-    t.integer "recipe_id", null: false
+    t.integer "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
