@@ -7,8 +7,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 col-xs-12"  style="background:#F5DEB3; border-radius: 30px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-xs-12"  style="background:#F5DEB3; border-radius: 20px;">
       <div class="list mt-4 text-center">
         <table class="table table-borderless">
           <thead>
@@ -22,7 +22,7 @@
           <% @lists.each do |list| %>
           <tbody>
             <tr>
-              <td><%= list.ingredient %></td>
+              <td><%= link_to list_path(list) do %><%= list.ingredient %><% end %></td>
               <td><%= list.supplier %></td>
               <td><%= list.lot %> <%= list.unit %></td>
               <td><%= list.price %></td>
@@ -32,6 +32,6 @@
         </table>
       </div>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-2"></div>
   </div>
 </div>
