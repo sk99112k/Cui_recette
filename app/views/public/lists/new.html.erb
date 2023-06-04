@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-6 col-xs-12" style="background:#F5DEB3; border-radius: 30px;">
+    <div class="col-md-6 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
       
       <%= form_with model: @list do |f| %>
       <div class="field mt-4 text-center">
@@ -21,8 +21,9 @@
           </tr>
           <tr>
             <td><%= f.label :lot, "仕入れロット数" %></td>
-            <td><%= f.text_field :lot, size: 13, placeholder: "3" %>
-              <%#= f.label :unit, "単位", autocomplete: "unit" %><%= f.text_field :unit, size: 5, placeholder: "kg" %>
+            <td>
+              <%= f.text_field :lot, size: 13, placeholder: "3" %>
+              <%= f.text_field :unit, size: 5, placeholder: "kg" %>
             </td>
           </tr>
           <tr>

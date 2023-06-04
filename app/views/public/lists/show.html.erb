@@ -1,2 +1,38 @@
-<h1>Public::Lists#show</h1>
-<p>Find me in app/views/public/lists/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto offset-sm-1">
+      <h3 class="m-5"><%= @list.ingredient %></h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
+      <div class="list mt-4 text-center">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th>食材</th>
+              <th>仕入れ先</th>
+              <th>仕入れロット数</th>
+              <th>値段</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @list.ingredient %></td>
+              <td><%= @list.supplier %></td>
+              <td><%= @list.lot %> <%= @list.unit %></td>
+              <td><%= @list.price %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="text-center">
+      <div class="edit m-5" style="display: inline-block;"><%= link_to "編集", edit_list_path(@list) %></div>
+      <div class="destroy m-5" style="display: inline-block;"><%= link_to "削除", list_path(@list), method: :delete %></div>
+    </div>
+  </div>
+</div>
