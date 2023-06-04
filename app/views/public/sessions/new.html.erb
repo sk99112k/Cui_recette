@@ -1,37 +1,46 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 px-sm-0 offset-sm-1">
-      <h2>ログイン</h2>
+    <div class="mx-auto offset-sm-1">
+      <h3 class="m-5">ログイン</h3>
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-xs-12"  style="background:#DEB887; border-radius: 30px;">
+      
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-        <div class="field">
-          <%= f.label :name, "名前" %><br>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password, "パスワード" %><br>
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %><br>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %>
-
-        <div class="actions">
-          <%= f.submit "ログイン" %>
+        <div class="field mt-4 text-center">
+          <table class="table table-borderless">
+            <tr>
+              <th><%= f.label :name, "名前" %></th>
+              <th><%= f.text_field :name, autofocus: true, autocomplete: "name" %></th>
+            </tr>
+            <tr>
+              <th><%= f.label :password, "パスワード" %></th>
+              <th><%= f.password_field :password, autocomplete: "current-password" %></th>
+            </tr>
+            <tr>
+              <th></th>
+              <th><%= f.submit "ログイン" %></th>
+            </tr>
+          </table>
         </div>
       <% end %>
 
-      <%= render "public/shared/links" %>
+        <!--<%# if devise_mapping.rememberable? %>-->
+        <!--  <div class="field text-center">-->
+        <!--    <%#= f.check_box :remember_me %><br>-->
+        <!--    <%#= f.label :remember_me %>-->
+        <!--  </div>-->
+        <!--<%# end %>-->
+      
+
+      <%#= render "public/shared/links" %>
     </div>
+    <div class="col-md-3"></div>
   </div>
 </div>
+
+
 
