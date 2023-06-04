@@ -17,7 +17,7 @@
         <!--Adminログイン後のheader-->
           <li><%= link_to "ユーザー", admin_members_path, class: 'nav-link text-white' %></li>
           <li><%= link_to "レシピ", admin_recipes_path, class: 'nav-link text-white' %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-white' %></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %></li>
         <% else %>
         <!--ログイン前header-->
           <li><%= link_to "About", about_path, class: 'nav-link text-white' %></li>
