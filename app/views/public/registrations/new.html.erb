@@ -1,42 +1,41 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 px-sm-0 offset-sm-1">
-      <h2>新規登録</h2>
+    <div class="mx-auto offset-sm-1">
+      <h3 class="m-5">新規登録</h3>
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-xs-12"  style="background:#DEB887; border-radius: 30px;">
     
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
       
-      <div class="field">
-        <%= f.label :name, "名前" %><br>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-      </div>
-    
-      <div class="field">
-        <%= f.label :email, "メールアドレス" %><br>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-    
-      <div class="field">
-        <%= f.label :password, "パスワード(6文字以上)" %><br>
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-    
-      <div class="field">
-        <%= f.label :password_confirmation, "確認用のパスワード" %><br>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-    
-      <div class="actions">
-        <%= f.submit "新規登録" %>
+      <div class="field mt-4 text-center">
+        <table class="table table-borderless">
+          <tr>
+            <th><%= f.label :name, "名前" %></th>
+            <th><%= f.text_field :name, autofocus: true, autocomplete: "name" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :email, "メールアドレス" %></th>
+            <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :password, "パスワード(6文字以上)" %></th>
+            <th><%= f.password_field :password, autocomplete: "new-password" %></th>
+          </tr>
+          <tr>
+            <th><%= f.label :password_confirmation, "確認用のパスワード" %></th>
+            <th><%= f.password_field :password_confirmation, autocomplete: "new-password" %></th>
+          </tr>
+          <tr>
+            <th></th>
+            <th><%= f.submit "新規登録" %></th>
+          </tr>
+        </table>
       </div>
     <% end %>
-    
-    <%= render "public/shared/links" %>
-    </div>
   </div>
 </div>
 
