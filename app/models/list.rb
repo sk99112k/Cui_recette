@@ -1,5 +1,5 @@
 class List < ApplicationRecord
-  
-  belongs_to :recipe
-  
+
+  belongs_to :recipe, required: false
+
 end
