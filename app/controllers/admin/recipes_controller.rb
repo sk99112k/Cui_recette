@@ -5,7 +5,7 @@ class Admin::RecipesController < ApplicationController
   end
   
   def show
-    @recipe = Recipe.find(params[:id])
+    # @recipe = Recipe.find(params[:id])
   end
   
 end
