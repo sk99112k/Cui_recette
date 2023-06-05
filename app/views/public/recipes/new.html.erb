@@ -1,2 +1,44 @@
-<h1>Public::Recipes#new</h1>
-<p>Find me in app/views/public/recipes/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto offset-sm-1">
+      <h3 class="m-5">レシピ投稿</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-xs-12"  style="background:#F5DEB3; border-radius: 20px;">
+
+      <%= form_with model: @recipe do |f| %>
+
+        <div class="field mt-4 text-center">
+          <table class="table table-borderless">
+            <tr>
+              <td><%= f.label :title, "レシピ名" %></td>
+              <td><%= f.text_field :title, autofocus: true, autocomplete: "title" %></td>
+            </tr>
+            <tr>
+              <!--listから複数選択-->
+              <td><%= f.label :material, "材料" %></td>
+              <td>
+                <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control', :id => 'list_id' %><br>
+                <div class="add_field">
+                  <button class="add_btn">+</button>
+                  <label class="add_label">追加する：<input class="add_input" type="text"></label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><%= f.label :body, "作り方" %></td>
+              <td><%= f.text_area :body, autocomplete: "body" %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= f.submit "投稿" %></td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

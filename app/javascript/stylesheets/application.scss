@@ -1,1 +1,28 @@
 @use '~bootstrap/scss/bootstrap';
+
+.add_field {
+  width: 100%;
+  padding: 8px 16px;
+  margin: 16px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.add_label {
+  margin-top: 8px;
+}
+
+.add_btn {
+  width: 50%;
+  height: 2.5em;
+  margin: 8px auto;
+  padding: 4px 0;
+  border-radius: 4px;
+  background-color: blue;
+  color: white;
+}
+
+button:hover {
+  opacity: .7;
+}

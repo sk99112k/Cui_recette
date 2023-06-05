@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2023_06_05_052430) do
     t.string "supplier", null: false
     t.float "lot", null: false
     t.string "unit", null: false
-    t.integer "recipe_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -104,6 +103,7 @@ ActiveRecord::Schema.define(version: 2023_06_05_052430) do
     t.text "body", null: false
     t.string "genre", null: false
     t.integer "member_id", null: false
+    t.integer "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
