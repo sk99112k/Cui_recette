@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   has_many :comments, dependent: :destroy
   # has_many :lists, dependent: :destroy
   has_many :list_strages, dependent: :destroy
+  accepts_nested_attributes_for :list_strages, reject_if: :all_blank, allow_destroy: true
 
   def get_image(width, height)
     unless image.attached?
