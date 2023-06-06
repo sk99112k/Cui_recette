@@ -16,16 +16,14 @@
               <td><%= f.label :title, "レシピ名" %></td>
               <td><%= f.text_field :title, autofocus: true, autocomplete: "title" %></td>
             </tr>
-            <tr>
+            <tr id="add_field">
               <!--listから複数選択-->
               <td><%= f.label :material, "材料" %></td>
               <td>
-                <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control', :id => 'list_id' %><br>
-                <div class="add_field">
-                  <button class="add_btn">+</button>
-                  <label class="add_label">追加する：<input class="add_input" type="text"></label>
-                </div>
+                <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control', :id => 'list_id' %>
+                <%= f.button "追加", id: "add_btn"%>
               </td>
+              
             </tr>
             <tr>
               <td><%= f.label :body, "作り方" %></td>
@@ -42,3 +40,9 @@
     <div class="col-md-3"></div>
   </div>
 </div>
+
+<script>
+  $('#add_btn').on('click', ()=>{
+    $('#add_field').append('append')
+  });
+</script>

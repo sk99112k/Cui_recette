@@ -11,11 +11,7 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
-import "recipe.js";
-import "../stylesheets/public/recipe";
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-console.log("test")
