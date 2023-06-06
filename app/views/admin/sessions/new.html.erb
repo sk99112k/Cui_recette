@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 col-xs-12"  style="background:#F5DEB3; border-radius: 20px;">
-      
+
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field mt-4 text-center">
         <table class="table table-borderless">
@@ -29,6 +29,11 @@
     </div>
     <div class="col-md-3"></div>
   </div>
+  <div class="row">
+    <div class="mx-auto offset-sm-1 mt-4">
+      <%= link_to "ゲストログイン", admin_guests_guest_sign_in_path, method: :post %>
+    </div>
+  </div>
 </div>
 
 
@@ -39,7 +44,7 @@
   <!--  </div>-->
   <!--<%# end %>-->
 
- 
+
 
 
 <%#= render "admin/shared/links" %>
