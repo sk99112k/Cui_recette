@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :recipes, only: [:show, :index] do
       resources :comments, only: [:destroy]
     end
+    post '/guests/guest_sign_in', to: 'guests#new_guest'
   end
 
   scope module: :public do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
       resource :book_marks, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
+    post '/guests/guest_sign_in', to: 'guests#new_guest'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
