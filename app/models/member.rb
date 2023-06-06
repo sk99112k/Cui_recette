@@ -4,7 +4,6 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :authentication_keys => [:name]
 
-
   has_many :recipes, dependent: :destroy
   has_many :book_marks, dependent: :destroy
   has_many :comments, dependent: :destroy
