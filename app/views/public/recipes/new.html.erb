@@ -17,6 +17,10 @@
               <td><%= f.text_field :title, autofocus: true, autocomplete: "title" %></td>
             </tr>
             <tr>
+              <td><%= f.label :image, "写真" %></td>
+              <td><%= f.file_field :image, accept: "image/*" %></td>
+            </tr>
+            <tr>
               <td><%= f.label :material, "材料" %></td>
               <td>
                 <!--フォームを追加する記述-->

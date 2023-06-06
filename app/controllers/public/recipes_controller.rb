@@ -22,10 +22,16 @@ class Public::RecipesController < ApplicationController
   def edit
   end
   
+  def update
+  end 
+  
+  def destroy
+  end 
+  
   private
   
   def recipe_params
-    params.require(:recipe).permit(:title, :body, :genre, :list_id)
+    params.require(:recipe).permit(:title, :body, :genre, :list_id, :image)
   end
 
 end
