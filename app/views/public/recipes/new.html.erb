@@ -17,15 +17,22 @@
               <td><%= f.text_field :title, autofocus: true, autocomplete: "title" %></td>
             </tr>
             <tr>
+              <td><%= f.label :genre, "ジャンル" %></td>
+              <td><%= f.text_field :genre, autocomplete: "genre" %></td>
+            </tr>
+            <tr>
               <td><%= f.label :image, "写真" %></td>
               <td><%= f.file_field :image, accept: "image/*" %></td>
             </tr>
             <tr>
               <td><%= f.label :material, "材料" %></td>
               <td>
-                <!--フォームを追加する記述-->
+                フォームを追加する記述
                 <div id="add_field">
-                <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control addlist_class', :id => 'list_id' %>
+                  <div class="addlist_class">
+                    <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control', :id => 'list_id' %>
+                    <span class="remove_field">削除</span>
+                  </div>
                 </div>
                 <%= f.button "追加", id: "add_btn"%>
               </td>
@@ -53,4 +60,8 @@
     // ボタンをクリックした時に、画面遷移するのを防ぐ
     return false;
   });
+$(document).on("click", ".remove_field", function() {
+    // closestはクリックされた要素の最も近い親要素（クラス名が"addlist_class"である要素）を削除する
+  $(this).closest(".addlist_class").remove();
+});
 </script>
