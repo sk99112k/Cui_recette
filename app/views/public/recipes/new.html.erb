@@ -27,7 +27,7 @@
             <tr>
               <td><%= f.label :material, "材料" %></td>
               <td>
-                フォームを追加する記述
+                <!--フォームを追加する記述-->
                 <div id="add_field">
                   <div class="addlist_class">
                     <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control', :id => 'list_id' %>
