@@ -5,7 +5,7 @@ class Public::RecipesController < ApplicationController
   end
 
   def show
-    # @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def new
@@ -13,8 +13,15 @@ class Public::RecipesController < ApplicationController
   end
 
   def create
+
     @recipe = Recipe.new(recipe_params)
-    if @recipe.save
+    @recipe.member = current_member
+    # 中間テーブルに保存される
+    # 追加した分のlist_idを繰り返しで保存する
+    if @recipe.save!
+      params[:recipe][:list_id].each do |list|
+        ListStorage.create(recipe_id: @recipe.id, list_id: list)
+      end
       redirect_to recipes_path
     else
       render "new"
@@ -33,7 +40,8 @@ class Public::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :body, :genre, :list_id, :image)
+    # params.require(:recipe).permit(:title, :body, :genre, :list_id=>, :image, :quantity)
+    params.require(:recipe).permit(:title, :body, :genre, :image)
   end
 
 end

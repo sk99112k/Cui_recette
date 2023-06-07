@@ -5,8 +5,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 col-xs-12"  style="background:#F5DEB3; border-radius: 20px;">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 col-xs-12"  style="background:#F5DEB3; border-radius: 20px;">
 
       <%= form_with model: @recipe do |f| %>
 
@@ -30,12 +30,19 @@
                 <!--フォームを追加する記述-->
                 <div id="add_field">
                   <div class="addlist_class">
-                    <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control', :id => 'list_id' %>
+                    <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control', :id => 'list_id', name: 'recipe[list_id][]' %>
                     <span class="remove_field">削除</span>
                   </div>
                 </div>
-                <%= f.button "追加", id: "add_btn"%>
+                <div style="display: flex;">
+                    <%= f.button "＋ 食材を追加", id: "add_btn", style: "border: 1px solid #808080; border-radius: 4px;" %>
+                </div>
+
               </td>
+            </tr>
+            <tr>
+              <td><%= f.label :quantity, "分量" %></td>
+              <td><%= f.text_field :quantity, autocomplete: "quantity" %></td>
             </tr>
             <tr>
               <td><%= f.label :body, "作り方" %></td>
@@ -49,7 +56,7 @@
         </div>
       <% end %>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-1"></div>
   </div>
 </div>
 
