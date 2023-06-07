@@ -5,7 +5,7 @@
       <div class="col-3 ml-auto">
       <% if current_member.name != "guestuser" %>
         <%= link_to "登録情報編集", edit_member_registration_path %>
-      <% end%>
+      <% end %>
       </div>
     </div>
   </div>
@@ -21,7 +21,7 @@
         <% end %>
         <div class="card-body">
           <h5 class="card-title" style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #8B4513;"><%= recipe.title %></h5>
-          <p class="card-text"><%= recipe.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+          <p class="card-text"><%= recipe.created_at.strftime('%Y/%m/%d') %></p>
         </div>
       </div>
     </div>
