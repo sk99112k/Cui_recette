@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2023_06_08_060351) do
-=======
-ActiveRecord::Schema.define(version: 2023_06_05_052430) do
->>>>>>> 41d0117733321062c4358f3d7883588bbf5c4090
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -47,7 +43,6 @@ ActiveRecord::Schema.define(version: 2023_06_05_052430) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -65,7 +60,7 @@ ActiveRecord::Schema.define(version: 2023_06_05_052430) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "recipes_id", null: false
+    t.integer "recipe_id", null: false
     t.integer "member_id", null: false
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -108,7 +103,6 @@ ActiveRecord::Schema.define(version: 2023_06_05_052430) do
     t.text "body", null: false
     t.string "genre", null: false
     t.integer "member_id", null: false
-    t.integer "list_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
