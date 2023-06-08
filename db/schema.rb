@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2023_06_08_060351) do
+=======
 ActiveRecord::Schema.define(version: 2023_06_05_052430) do
+>>>>>>> 41d0117733321062c4358f3d7883588bbf5c4090
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,8 +73,9 @@ ActiveRecord::Schema.define(version: 2023_06_05_052430) do
   end
 
   create_table "list_storages", force: :cascade do |t|
-    t.integer "recipe_id", null: false
     t.integer "list_id", null: false
+    t.integer "recipe_id", null: false
+    t.string "quantity", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
