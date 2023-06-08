@@ -1,13 +1,12 @@
-<div class="nested-fields">
-  <div class="field">
+<tr class="nested-fields">
+  <td class="field">
     <%# link_to_add_associationのform_nameで指定した名前。(初期値 : f)  %>
+    <%= f.label :list_id, '材料' %>
     <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control', :id => 'list_id', name: 'recipe[list_ids][]' %>
-    <%= f.text_field :list_id %>
     <%= f.label :quantity, '分量' %>
     <%= f.text_field :quantity %>
-  </div>
-  <div class="field">
-    <%= link_to_remove_association "トラックを削除",f %>
-  </div>
-  <hr>
-</div>
+  </td>
+  <td class="field">
+    <%= link_to_remove_association "削除",f %>
+  </td>
+</tr>

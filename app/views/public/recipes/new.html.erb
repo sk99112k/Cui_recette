@@ -19,27 +19,24 @@
             <td><%= f.label :title, "レシピ名", autocomplete: "title" %></td>
             <td><%= f.text_field :title %></td>
           </tr>
-          <tr>
-            <div class="details">
+          <tr class="details">
+            <td class="list_storage_forms">
+              <%# フォームを追加する場所。%>
+              <%= f.fields_for :list_storages do |f| %>
+                <%= render 'list_storage_fields', list_storage: f %>
+              <% end %>
+            </td>
+            <td>
               <%# トラックの追加フォームをするボタン %>
               <%= link_to_add_association '追加する', f, :list_storages %>
-              <%# フォームを追加する場所。%>
-              <div class="list_storage_forms">
-                <%= f.fields_for :list_storages do |f| %>
-                  <%= render 'list_fields', list_storage: f %>
-                <% end %>
-              </div>
-            </div>
-          <!--  <td><%#= f.label :, "材料" %></td>-->
-          <!--  <td><%#= f.text_field :l %></td>-->
-          <!--</tr>-->
+            </td>
           <tr>
             <td><%= f.label :genre, "ジャンル" %></td>
-            <td><%= f.text_field :genre %> 円</td>
+            <td><%= f.text_field :genre %></td>
           </tr>
           <tr>
             <td><%= f.label :body, "作り方" %></td>
-            <td><%= f.text_field :body %> 円</td>
+            <td><%= f.text_field :body %></td>
           </tr>
           <tr>
             <td></td>
