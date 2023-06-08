@@ -6,10 +6,16 @@
           <td><%= @recipe.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
         <tr>
-          <td><%= image_tag @recipe.get_image(100,100) %></td>
+          <td><%= image_tag @recipe.get_image(330,330) %></td>
         </tr>
         <tr>
           <th><%= @recipe.title %></th>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to "編集", edit_recipe_path(@recipe) %>
+            <%= link_to "削除", recipe_path(@recipe), method: :delete %>
+          </td>
         </tr>
       </table>
     </div>
@@ -18,12 +24,13 @@
       <table class="table table-hover mt-5">
         <tr>
           <th>材料</th>
-          <td><%= @recipe.list.ingredient %></td>
-          <td><%= @recipe.quantity %></td>
+          <td><%#= @recipe.list.ingredient %></td>
+          <td><%#= @recipe.quantity %></td>
         </tr>
         <tr>
           <th>作り方</th>
           <td><%= @recipe.body %></td>
+          <td></td>
         </tr>
       </table>
     </div>

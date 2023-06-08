@@ -27,10 +27,11 @@
             <tr>
               <td><%= f.label :material, "材料" %></td>
               <td>
-                <!--フォームを追加する記述-->
                 <div id="add_field">
                   <div class="addlist_class">
-                    <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください", multiple: true}, :class => 'form-control', :id => 'list_id', name: 'recipe[list_id][]' %>
+                    <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください"}, class: 'form-control', name: 'lists[]' %>
+                    <%= f.text_field :quantity, autocomplete: "quantity" %>
+                    <%#= f.text_field :quantity, autocomplete: "quantity", name: 'quantities[]' %>
                     <span class="remove_field">削除</span>
                   </div>
                 </div>
@@ -40,10 +41,10 @@
 
               </td>
             </tr>
-            <tr>
-              <td><%= f.label :quantity, "分量" %></td>
-              <td><%= f.text_field :quantity, autocomplete: "quantity" %></td>
-            </tr>
+            <!--<tr>-->
+              <!--<td><%#= f.label :quantity, "分量" %></td>-->
+            <!--  <td></td>-->
+            <!--</tr>-->
             <tr>
               <td><%= f.label :body, "作り方" %></td>
               <td><%= f.text_area :body, autocomplete: "body" %></td>
@@ -60,6 +61,8 @@
   </div>
 </div>
 
+
+<!--フォームを追加する記述-->
 <script>
   $('#add_btn').on('click', ()=>{
     // 要素をappendで追加し、cloneで複製する

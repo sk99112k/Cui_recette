@@ -5,7 +5,7 @@ class Recipe < ApplicationRecord
   belongs_to :member
   has_many :book_marks, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :lists, dependent: :destroy
+  has_many :list_storages, dependent: :destroy
   has_many :lists, through: :list_storages
 
   def get_image(width, height)

@@ -3,6 +3,7 @@ class CreateListStorages < ActiveRecord::Migration[6.1]
     create_table :list_storages do |t|
       t.integer :recipe_id, null: false
       t.integer :list_id, null: false
+      t.integer :quantity,  null: false
 
       t.timestamps
     end

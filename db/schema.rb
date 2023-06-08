@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2023_06_05_052430) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "recipes_id", null: false
+    t.integer "recipe_id", null: false
     t.integer "member_id", null: false
     t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2023_06_05_052430) do
   create_table "list_storages", force: :cascade do |t|
     t.integer "recipe_id", null: false
     t.integer "list_id", null: false
+    t.integer "quantity", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
