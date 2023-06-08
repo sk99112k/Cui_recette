@@ -6,7 +6,6 @@ class CreateLists < ActiveRecord::Migration[6.1]
       t.string :supplier,   null: false
       t.float :lot,       null: false
       t.string :unit,       null: false
-      t.integer :recipe_id
 
       t.timestamps
     end

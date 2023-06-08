@@ -7,12 +7,12 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
-      
+
       <%= form_with model: @recipe do |f| %>
       <div class="field mt-4 text-center">
         <table class="table table-borderless">
           <tr>
-            <td><%= f.labe :image, "写真" %></td>
+            <td><%= f.label :image, "写真" %></td>
             <td><%= f.file_field :image, autofocus: true %></td>
           </tr>
           <tr>
@@ -20,12 +20,26 @@
             <td><%= f.text_field :title %></td>
           </tr>
           <tr>
-            <td><%= f.label :, "材料" %></td>
-            <td><%= f.text_field :l %></td>
+            <div class="details">
+              <%# トラックの追加フォームをするボタン %>
+              <%= link_to_add_association '追加する', f, :list_storages %>
+              <%# フォームを追加する場所。%>
+              <div class="list_storage_forms">
+                <%= f.fields_for :list_storages do |f| %>
+                  <%= render 'list_fields', list_storage: f %>
+                <% end %>
+              </div>
+            </div>
+          <!--  <td><%#= f.label :, "材料" %></td>-->
+          <!--  <td><%#= f.text_field :l %></td>-->
+          <!--</tr>-->
+          <tr>
+            <td><%= f.label :genre, "ジャンル" %></td>
+            <td><%= f.text_field :genre %> 円</td>
           </tr>
           <tr>
-            <td><%= f.label :price, "値段" %></td>
-            <td><%= f.text_field :price, size: 18, placeholder: "1000" %> 円</td>
+            <td><%= f.label :body, "作り方" %></td>
+            <td><%= f.text_field :body %> 円</td>
           </tr>
           <tr>
             <td></td>
