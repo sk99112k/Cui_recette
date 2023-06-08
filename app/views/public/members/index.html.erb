@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto">
+    <div class="mx-auto m-5">
       <h3>ユーザー一覧</h3>
     </div>
   </div>
@@ -17,7 +17,7 @@
         <% @members.each do |member| %>
         <tbody>
           <tr>
-            <td><%= member.name %></td>
+            <td><%=link_to member_path(member) do %><%= member.name %><% end %></td>
             <td><%= member.recipes.count %></td>
           </tr>
         </tbody>

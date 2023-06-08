@@ -4,7 +4,7 @@ class Public::MembersController < ApplicationController
   end
 
   def show
-    @member = current_member
+    @member = Member.find(params[:id])
     @recipes = Recipe.all
   end
 

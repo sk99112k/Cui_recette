@@ -1,2 +1,19 @@
-<h1>Admin::Members#show</h1>
-<p>Find me in app/views/admin/members/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto m-5">
+      <h3><%= @member.name %></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-9 px-sm-0 mx-auto mb-5">
+      <table class="table table-hover">
+      <% @recipes.each do |recipe| %>
+        <tr>
+          <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.title %><% end %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>
