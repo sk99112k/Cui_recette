@@ -1,4 +1,4 @@
-class Public::RecipesController < ApplicationController
+class Public::RecipesController < Public::ApplicationController
 
   def index
     @recipes = Recipe.all
