@@ -10,6 +10,7 @@
         </tr>
         <tr>
           <th style="font-size:30px;" id="book_mark_btn_<%= @recipe.id %>">
+            <!--BookMark-->
             <%= render 'public/book_marks/book_mark', recipe: @recipe %>
             <span class="ml-5">
               <%= @recipe.title %>
@@ -53,23 +54,8 @@
     </table>
   </div>
 
-  <div class="row mt-5">
-    <div class="col-8">
-      <table class="table table-borderless">
-        <% @recipe.comments.each do |comment| %>
-        <tr>
-          <td><%= comment.created_at.strftime('%m/%d')%></td>
-          <td><%= comment.member.name %></td>
-          <td><%= comment.body %></td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-    <div class="col-4">
-      <%= form_with model: [@recipe,@comment] do |f| %>
-        <%= f.text_area :body, rows: '5', placeholder: "コメント" %>
-        <%= f.submit "作成" %>
-      <% end %>
-    </div>
+  <div class="row mt-5" id="comment">
+    <!--コメント-->
+    <%= render 'public/comments/comment', recipe: @recipe, comment: @comment %>
   </div>
 </div>
