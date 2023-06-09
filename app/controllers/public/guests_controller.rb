@@ -1,4 +1,4 @@
-class Public::GuestsController < Public::ApplicationController
+class Public::GuestsController < ApplicationController
   before_action :new_guest, only: [:edit, :destroy]
 
   def new_guest
