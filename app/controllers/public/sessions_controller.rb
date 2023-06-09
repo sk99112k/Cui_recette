@@ -4,9 +4,9 @@ class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # sign_in後ユーザー詳細ページに遷移
-  def after_sign_up_path_for(resource)
+  def after_sign_in_path_for(resource)
     super(resource)
-    recipe_path(current_member)
+    member_path(current_member)
   end
 
   # GET /resource/sign_in

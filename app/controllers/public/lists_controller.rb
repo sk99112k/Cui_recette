@@ -1,4 +1,4 @@
-class Public::ListsController < ApplicationController
+class Public::ListsController < Public::ApplicationController
 
   def new
     @list = List.new
