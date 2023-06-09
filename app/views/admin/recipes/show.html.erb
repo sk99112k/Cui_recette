@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto m-5">
-      <h3>hhh<%#= @recipe.title %></h3>
+      <h3><%= @recipe.title %></h3>
     </div>
   </div>
 
@@ -11,7 +11,7 @@
       <table class="table table-hover">
       <%# @recipe.comments.each do |comment| %>
         <tr>
-          <td>df<%#= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+          <td>df<%#= comment.created_at.strftime('%Y/%m/%d') %></td>
           <td>ee<%#= comment.member.name %></td>
           <td>vv<%#= comment.comment %></td>
           <td>qq<%#= link_to "削除", admin_recipe_comment_path(comment.recipe,comment), remote: true, method: :delete %></td>
