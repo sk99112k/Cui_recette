@@ -16,5 +16,9 @@ class Recipe < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  def bookmarked_by?(member)
+    book_marks.where(member_id: member).exists?
+  end
 
 end
