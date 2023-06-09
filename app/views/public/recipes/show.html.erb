@@ -40,12 +40,31 @@
       </div>
     </div>
 
-      <table class="table table-hover mt-5">
+    <table class="table table-hover my-5">
+      <tr>
+        <th>作り方</th>
+        <td><%= @recipe.body %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-8">
+      <table class="table table-borderless">
+        <% @recipe.comments.each do |comment| %>
         <tr>
-          <th>作り方</th>
-          <td><%= @recipe.body %></td>
+          <td><%= comment.created_at.strftime('%m/%d')%></td>
+          <td><%= comment.member.name %></td>
+          <td><%= comment.body %></td>
         </tr>
+        <% end %>
       </table>
+    </div>
+    <div class="col-4">
+      <%= form_with model: [@recipe,@comment] do |f| %>
+        <%= f.text_area :body, rows: '5', placeholder: "コメント" %>
+        <%= f.submit "作成" %>
+      <% end %>
     </div>
   </div>
 </div>
