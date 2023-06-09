@@ -1,0 +1,5 @@
+<% if recipe.bookmarked_by?(current_member) %>
+  <%= link_to recipe_book_marks_path(recipe), method: :delete do %><i class="fa-solid fa-bookmark"></i><% end %>
+<% else %>
+  <%= link_to recipe_book_marks_path(recipe), method: :post do %><i class="fa-regular fa-bookmark"></i><% end %>
+<% end %>

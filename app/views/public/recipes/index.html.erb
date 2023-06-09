@@ -16,9 +16,12 @@
         <% end %>
         <div class="card-body">
           <h5 class="card-title">
-            <%= link_to recipe_path(recipe) do %>
-              <%= recipe.title %>
-            <% end %>
+            <%= render 'public/book_marks/book_mark', recipe: recipe %>
+            <span class="ml-5">
+              <%= link_to recipe_path(recipe) do %>
+                <%= recipe.title %>
+              <% end %>
+            </span>
           </h5>
           <p class="card-text">
             <%= recipe.member.name %><br>
