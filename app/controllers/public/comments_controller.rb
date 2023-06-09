@@ -5,7 +5,7 @@ class Public::CommentsController < Public::ApplicationController
     @comment = current_member.comments.new(comment_params)
     @comment.recipe_id = @recipe.id
     @comment.save
-    redirect_to request.referer
+    # redirect_to request.referer
   end
   
   # def destroy
