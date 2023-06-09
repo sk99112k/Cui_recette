@@ -15,8 +15,9 @@
           </div>
         <% end %>
         <div class="card-body">
-          <h5 class="card-title" style="display: flex;">
+          <h5 class="card-title">
             <div id="book_mark_btn_<%= recipe.id %>">
+              <!--BookMark-->
               <%= render 'public/book_marks/book_mark', recipe: recipe %>
             </div>
             <p class="ml-5">

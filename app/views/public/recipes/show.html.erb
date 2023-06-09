@@ -9,12 +9,14 @@
           <td><%= image_tag @recipe.get_image(300,300) %></td>
         </tr>
         <tr>
-          <th style="font-size:30px;" id="book_mark_btn_<%= @recipe.id %>">
-            <!--BookMark-->
-            <%= render 'public/book_marks/book_mark', recipe: @recipe %>
-            <span class="ml-5">
+          <th style="font-size:30px;" class="text-left">
+            <div id="book_mark_btn_<%= @recipe.id %>">
+              <!--BookMark-->
+              <%= render 'public/book_marks/book_mark', recipe: @recipe %>
+            </div>
+            <p>
               <%= @recipe.title %>
-            </span>
+            </p>
           </th>
         </tr>
         <tr>
