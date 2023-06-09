@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto offset-sm-1">
-      <h3 class="m-5">レシピ新規投稿</h3>
+      <h3 class="m-5">レシピ編集</h3>
     </div>
   </div>
   <div class="row">
@@ -23,7 +23,7 @@
             <td class="list_storage_forms">
               <%# フォームを追加する場所。%>
               <%= f.fields_for :list_storages do |f| %>
-                <%= render 'list_storage_fields', list_storage: f %>
+                <%= render 'list_storage_fields', f: list_storage %>
               <% end %>
             </td>
             <td>
