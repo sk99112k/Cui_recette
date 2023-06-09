@@ -1,2 +1,70 @@
-<h1>Public::Recipes#show</h1>
-<p>Find me in app/views/public/recipes/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <table class="table table-borderless">
+        <tr>
+          <td><%= @recipe.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <td><%= image_tag @recipe.get_image(300,300) %></td>
+        </tr>
+        <tr>
+          <th><%= @recipe.title %></th>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to "編集", edit_recipe_path(@recipe) %>
+            <%= link_to "削除", recipe_path(@recipe), method: :delete %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-lg-8 offset-md-1">
+      <h5 class="ingredient mt-5 mb-3 ml-5">
+        <span>材料</span>
+      </h5>
+      <div class="ingredient_title ml-5">
+        <ul>
+          <% @recipe.list_storages.each do |list_storage| %>
+          <li><%= list_storage.list_id %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="ingredient_quantity ml-5" style="display: flex;">
+        <ul>
+          <% @recipe.list_storages.each do |list_storage| %>
+          <li><%= list_storage.quantity %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <table class="table table-hover my-5">
+      <tr>
+        <th>作り方</th>
+        <td><%= @recipe.body %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-8">
+      <table class="table table-borderless">
+        <% @recipe.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.created_at.strftime('%m/%d')%></td>
+          <td><%= comment.member.name %></td>
+          <td><%= comment.body %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-4">
+      <%= form_with model: [@recipe,@comment] do |f| %>
+        <%= f.text_area :body, rows: '5', placeholder: "コメント" %>
+        <%= f.submit "作成" %>
+      <% end %>
+    </div>
+  </div>
+</div>

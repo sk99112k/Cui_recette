@@ -1,2 +1,2 @@
-class Public::BookMarksController < ApplicationController
+class Public::BookMarksController < Public::ApplicationController
 end

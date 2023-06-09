@@ -11,14 +11,14 @@
         <thead>
           <tr>
             <th>投稿日時</th>
-            <th>レシピ数</th>
+            <th>レシピ名</th>
             <th>コメント数</th>
           </tr>
         </thead>
         <% @recipes.each do |recipe| %>
         <tbody>
           <tr>
-            <td><%= recipe.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+            <td><%= recipe.created_at.strftime('%Y/%m/%d') %></td>
             <td><%= recipe.title %></td>
             <td><%= recipe.comments.count %></td>
           </tr>

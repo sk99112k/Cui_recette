@@ -1,2 +1,51 @@
-<h1>Public::Recipes#edit</h1>
-<p>Find me in app/views/public/recipes/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto offset-sm-1">
+      <h3 class="m-5">レシピ編集</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
+
+      <%= form_with model: @recipe do |f| %>
+      <div class="field mt-4 text-center">
+        <table class="table table-borderless">
+          <tr>
+            <td><%= f.label :image, "写真" %></td>
+            <td><%= f.file_field :image, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :title, "レシピ名", autocomplete: "title" %></td>
+            <td><%= f.text_field :title %></td>
+          </tr>
+          <tr class="details">
+            <td class="list_storage_forms">
+              <%# フォームを追加する場所。%>
+              <%= f.fields_for :list_storages do |f| %>
+                <%= render 'list_storage_fields', f: list_storage %>
+              <% end %>
+            </td>
+            <td>
+              <%# トラックの追加フォームをするボタン %>
+              <%= link_to_add_association '追加する', f, :list_storages %>
+            </td>
+          <tr>
+            <td><%= f.label :genre, "ジャンル" %></td>
+            <td><%= f.text_field :genre %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :body, "作り方" %></td>
+            <td><%= f.text_field :body %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "登録" %></td>
+          </tr>
+        </table>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
