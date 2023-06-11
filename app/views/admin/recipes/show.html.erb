@@ -9,14 +9,14 @@
     <div class="col-sm-12 px-sm-0 mx-auto mb-5">
       <p class="text-left">コメント</p>
       <table class="table table-hover">
-      <%# @recipe.comments.each do |comment| %>
+      <% @recipe.comments.each do |comment| %>
         <tr>
-          <td>df<%#= comment.created_at.strftime('%Y/%m/%d') %></td>
-          <td>ee<%#= comment.member.name %></td>
-          <td>vv<%#= comment.comment %></td>
-          <td>qq<%#= link_to "削除", admin_recipe_comment_path(comment.recipe,comment), remote: true, method: :delete %></td>
+          <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= comment.member.name %></td>
+          <td><%= comment.body %></td>
+          <td><%= link_to "削除", admin_recipe_comment_path(comment.recipe,comment), method: :delete %></td>
         </tr>
-      <%# end %>
+      <% end %>
       </table>
     </div>
   </div>

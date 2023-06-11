@@ -18,9 +18,9 @@
         <% @recipes.each do |recipe| %>
         <tbody>
           <tr>
-            <td><%= recipe.created_at.strftime('%Y/%m/%d') %></td>
-            <td><%= recipe.title %></td>
-            <td><%= recipe.comments.count %></td>
+            <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.created_at.strftime('%Y/%m/%d') %><% end %></td>
+            <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.title %><% end %></td>
+            <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.comments.count %><% end %></td>
           </tr>
         </tbody>
         <% end %>
