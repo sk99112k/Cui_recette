@@ -76,7 +76,8 @@ ActiveRecord::Schema.define(version: 2023_06_08_060351) do
   end
 
   create_table "lists", force: :cascade do |t|
-    t.string "ingredient", null: false
+    t.string "name", null: false
+    t.string "name_kana", null: false
     t.integer "price", null: false
     t.string "supplier", null: false
     t.float "lot", null: false

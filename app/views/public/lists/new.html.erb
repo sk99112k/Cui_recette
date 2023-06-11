@@ -7,13 +7,17 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
-      
+
       <%= form_with model: @list do |f| %>
       <div class="field mt-4 text-center">
         <table class="table table-borderless">
           <tr>
-            <td><%= f.label :ingredient, "食材" %></td>
-            <td><%= f.text_field :ingredient, autofocus: true, placeholder: "にんじん" %></td>
+            <td><%= f.label :name, "食材" %></td>
+            <td><%= f.text_field :name, autofocus: true, placeholder: "人参" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :name_kana, "食材フリガナ" %></td>
+            <td><%= f.text_field :name_kana, placeholder: "ニンジン" %></td>
           </tr>
           <tr>
             <td><%= f.label :supplier, "仕入れ先", autocomplete: "supplier" %></td>
