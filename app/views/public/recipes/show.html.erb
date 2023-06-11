@@ -21,8 +21,10 @@
         </tr>
         <tr>
           <td>
+            <% if current_member == @recipe.member %>
             <%= link_to "編集", edit_recipe_path(@recipe) %>
             <%= link_to "削除", recipe_path(@recipe), method: :delete %>
+            <% end %>
           </td>
         </tr>
       </table>
