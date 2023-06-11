@@ -1,30 +1,35 @@
-<div class="row mt-3  justify-content-center">
+<div class="row justify-content-center">
   <% recipes.each do |recipe| %>
-  <div class="col-xs-10 col-sm-6 col-md-4 col-lg-3 mb-4">
-    <div class="card border-0 shadow-sm">
-      <%= link_to recipe_path(recipe.id) do %>
-      <div class="img-wrap">
-        <%= image_tag recipe.get_image(200, 200), class: "card-img-top img-fluid" %>
+  <div class="recipe_all m-4" style="border:solid; border-color:#e8e8e8">
+    <div class="recipe_image">
+    <%= link_to recipe_path(recipe.id) do %>
+      <%= image_tag recipe.get_image(300, 300), class: "card-img-top img-fluid" %>
+    <% end %>
+    </div>
+    <div style="display:flex;">
+      <div class="recipe_title">
+        <h4>
+          <%= link_to recipe_path(recipe) do %>
+            <%= recipe.title %>
+          <% end %>
+        </h4>
+        <%= recipe.member.name %><br>
+        <%= recipe.created_at.strftime('%Y/%m/%d') %>
       </div>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title" style="display:flex;">
-          <div id="book_mark_btn_<%= recipe.id %>">
-            <!--BookMark-->
-            <%= render 'public/book_marks/book_mark', recipe: recipe %>
-          </div>
-          <p class="ml-5">
-            <%= link_to recipe_path(recipe) do %>
-              <%= recipe.title %>
-            <% end %>
-          </p>
-        </h5>
-        <p class="card-text">
-          <%= recipe.member.name %><br>
-          <%= recipe.created_at.strftime('%Y/%m/%d') %>
-        </p>
+      <div id="book_mark_btn_<%= recipe.id %>" style="font-size:36px;">
+        <!--BookMark-->
+        <%= render 'public/book_marks/book_mark', recipe: recipe %>
       </div>
     </div>
   </div>
   <% end %>
 </div>
+
+<script>
+  $('.recipe_all').on('mouseenter', function () {
+    $(this).css('box-shadow', '0 10px 25px 0 rgba(0, 0, 0, .5)');
+  });
+  $('.recipe_all').on('mouseleave', function () {
+    $(this).css('box-shadow', '');
+  });
+</script>
