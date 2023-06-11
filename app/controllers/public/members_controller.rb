@@ -1,12 +1,12 @@
 class Public::MembersController < Public::ApplicationController
-  
+
   def index
     @members = Member.all
   end
 
   def show
     @member = Member.find(params[:id])
-    @recipes = Recipe.all
+    @recipes = @member.recipes
   end
 
   private
