@@ -13,5 +13,11 @@ class Public::BookMarksController < Public::ApplicationController
     @book_mark.destroy
     # redirect_to request.referer
   end
+  
+  def book_marks
+    @member = current_member
+    @book_marks = BookMark.where(member_id: @member.id).pluck(:recipe_id)
+    @book_mark_recipes = Recipe.find(@book_marks)
+  end 
 
 end

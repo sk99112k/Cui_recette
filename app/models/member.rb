@@ -7,5 +7,5 @@ class Member < ApplicationRecord
   has_many :recipes, dependent: :destroy
   has_many :book_marks, dependent: :destroy
   has_many :comments, dependent: :destroy
-
+  
 end
