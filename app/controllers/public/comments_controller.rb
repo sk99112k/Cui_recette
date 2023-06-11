@@ -8,12 +8,12 @@ class Public::CommentsController < Public::ApplicationController
     # redirect_to request.referer
   end
   
-  # def destroy
-  #   @recipe = Recipe.find(params[:recipe_id])
-  #   @comment = current_member.comments.find_by(recipe_id: @recipe.id)
-  #   @comment.destroy
-  #   redirect_to request.referer
-  # end 
+  def destroy
+    @recipe = Recipe.find(params[:recipe_id])
+    @comment = current_member.comments.find_by(recipe_id: @recipe.id)
+    @comment.destroy
+    # redirect_to request.referer
+  end 
   
   private
   

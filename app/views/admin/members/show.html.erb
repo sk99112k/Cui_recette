@@ -8,9 +8,18 @@
   <div class="row">
     <div class="col-sm-9 px-sm-0 mx-auto mb-5">
       <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>投稿日時</th>
+            <th>レシピ名</th>
+            <th>コメント数</th>
+          </tr>
+        </thead>
       <% @recipes.each do |recipe| %>
         <tr>
+          <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.created_at.strftime('%Y/%m/%d') %><% end %></td>
           <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.title %><% end %></td>
+          <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.comments.count %> 件<% end %></td>
         </tr>
       <% end %>
       </table>
