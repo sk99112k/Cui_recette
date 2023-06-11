@@ -34,19 +34,21 @@
       <h5 class="name mt-5 mb-3 ml-5">
         <span>材料</span>
       </h5>
-      <div class="name_title ml-5">
-        <ul>
-          <% @recipe.list_storages.each do |list_storage| %>
-          <li><%= list_storage.list_id %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="name_quantity ml-5" style="display: flex;">
-        <ul>
-          <% @recipe.list_storages.each do |list_storage| %>
-          <li><%= list_storage.quantity %></li>
-          <% end %>
-        </ul>
+      <div style="display:flex;">
+        <div class="name_title ml-5">
+          <ul>
+            <% @recipe.list_storages.each do |list_storage| %>
+            <li><%= list_storage.list.name %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="name_quantity ml-5">
+          <ul>
+            <% @recipe.list_storages.each do |list_storage| %>
+            <li><%= list_storage.quantity %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
 

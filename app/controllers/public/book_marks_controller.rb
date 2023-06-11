@@ -13,11 +13,12 @@ class Public::BookMarksController < Public::ApplicationController
     @book_mark.destroy
     # redirect_to request.referer
   end
-  
+
   def book_marks
-    @member = current_member
-    @book_marks = BookMark.where(member_id: @member.id).pluck(:recipe_id)
-    @book_mark_recipes = Recipe.find(@book_marks)
-  end 
+    @member = Member.find(params[:member_id])
+    # Bookmarkモデルからmember_idを探して、recipe_idを取得している
+    @recipe_id = BookMark.where(member_id: @member.id).pluck(:recipe_id)
+    @book_mark_recipes = Recipe.find(@recipe_id)
+  end
 
 end

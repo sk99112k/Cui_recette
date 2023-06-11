@@ -9,7 +9,7 @@
         <% end %>
       <% end %><br>
       <%# if current_member ==  %>
-        <%= link_to "BookMark一覧", recipe_book_marks_path(current_member) %>
+        <%= link_to "BookMark一覧", member_book_marks_path(@member) %>
       <%# end %>
       </div>
     </div>
@@ -25,8 +25,8 @@
           </div>
         <% end %>
         <div class="card-body">
-          <h5 class="card-title" style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #8B4513;"><%= recipe.title %></h5>
-          <p class="card-text"><%= recipe.created_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+          <h5 class="card-title"><%= recipe.title %></h5>
+          <p class="card-text"><%= recipe.created_at.strftime('%Y/%m/%d') %></p>
         </div>
       </div>
     </div>
