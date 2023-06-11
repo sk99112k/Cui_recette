@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto offset-sm-1">
-      <h3 class="m-5"><%= @list.ingredient %></h3>
+      <h3 class="m-5"><%= @list.name %></h3>
     </div>
   </div>
   <div class="row">
@@ -19,7 +19,7 @@
           </thead>
           <tbody>
             <tr>
-              <td><%= @list.ingredient %></td>
+              <td><%= @list.name %></td>
               <td><%= @list.supplier %></td>
               <td><%= @list.lot %> <%= @list.unit %></td>
               <td><%= @list.price %></td>

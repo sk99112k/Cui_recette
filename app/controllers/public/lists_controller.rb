@@ -14,7 +14,8 @@ class Public::ListsController < Public::ApplicationController
   end
 
   def index
-    @lists = List.all
+    # @lists = List.all
+    @lists = List.order("name_kana")
   end
 
   def show
@@ -38,12 +39,13 @@ class Public::ListsController < Public::ApplicationController
     @list = List.find(params[:id])
     @list.destroy
     redirect_to lists_path
+
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:ingredient, :supplier, :price, :lot, :unit)
+    params.require(:list).permit(:name, :name_kana, :supplier, :price, :lot, :unit)
   end
 
 end

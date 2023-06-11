@@ -2,7 +2,7 @@
   <td class="field">
     <%# link_to_add_associationのform_nameで指定した名前。(初期値 : f)  %>
     <%= f.label :list_id, '材料' %>
-    <%= f.collection_select :list_id, List.all, :id, :ingredient, {prompt: "選択してください"}, class: 'form-control' %>
+    <%= f.collection_select :list_id, List.all, :id, :name, {prompt: "選択してください"}, class: 'form-control' %>
     <%= f.label :quantity, '分量' %>
     <%= f.text_field :quantity %>
   </td>
