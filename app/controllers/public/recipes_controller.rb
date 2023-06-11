@@ -41,6 +41,10 @@ class Public::RecipesController < Public::ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
+  
+  def search
+    @recipes = Recipe.search(params[:search])
+  end 
 
   private
 
@@ -48,5 +52,9 @@ class Public::RecipesController < Public::ApplicationController
     # :id, :_destroyをつけることで、編集と削除が可能になる
     params.require(:recipe).permit(:title, :body, :image, :genre, list_storages_attributes: [:list_id, :id, :quantity, :_destroy])
   end
+  
+  def search_params
+    params.permit(:keyword)
+  end 
 
 end
