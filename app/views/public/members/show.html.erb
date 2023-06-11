@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col mx-auto offset-sm-1">
+    <div class="col mx-auto offset-sm-1" style="display:flex;">
       <h3 class="m-5"><%= @member.name %> さん</h3>
       <div class="col-3 ml-auto">
       <% if current_member.name != "guestuser" %>
         <%= link_to "登録情報編集", edit_member_registration_path %>
-      <% end%>
+      <% end %><br>
+      <% if current_member == @member %>
+        <%= link_to "BookMark一覧", recipe_book_marks_path(current_member) %>
+      <% end %>
       </div>
     </div>
   </div>

@@ -43,7 +43,7 @@ class Public::RecipesController < Public::ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
-
+  
   private
 
   def recipe_params

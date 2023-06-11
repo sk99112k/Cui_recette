@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :lists, only: [:new, :create, :show, :index, :edit, :update, :destroy]
     resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       resource :book_marks, only: [:create, :destroy]
+      get 'book_marks' => 'book_marks#book_marks'
       resources :comments, only: [:create, :destroy]
     end
     post '/guests/guest_sign_in', to: 'guests#new_guest'
