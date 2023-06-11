@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="search float-right mt-3">
+        <% if member_signed_in? %>
+        <!--Memberログイン中のみ表示させる-->
+          <%= form_with url: search_recipes_path, local: true, method: :get do |f| %>
+          <%= f.text_field :search, class: "placeholder", placeholder: " キーワード入力", style: "border-radius:25px;" %>
+          <button type="submit"><i class="fas fa-search"></i></button>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

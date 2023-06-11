@@ -20,5 +20,11 @@ class Recipe < ApplicationRecord
   def bookmarked_by?(member)
     book_marks.where(member_id: member).exists?
   end
+  
+  def self.search(search)
+    # searchが空ならRecipe.allを返す（blankは空という意味）
+    return Recipe.all if search.blank?
+    Recipe.where('title LIKE ?', "%#{search}%")
+  end 
 
 end
