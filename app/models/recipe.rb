@@ -3,7 +3,7 @@ class Recipe < ApplicationRecord
   has_one_attached :image
 
   belongs_to :member
-  belongs_to :genre, dependent: :destroy
+  belongs_to :genre
   has_many :book_marks, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :list_storages, dependent: :destroy
