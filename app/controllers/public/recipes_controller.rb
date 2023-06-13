@@ -18,7 +18,7 @@ class Public::RecipesController < Public::ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.member = current_member
-    if @recipe.save!
+    if @recipe.save
       redirect_to recipe_path(@recipe)
     else
       render :new

@@ -16,8 +16,8 @@
             <td><%= f.text_field :name, autofocus: true, placeholder: "人参" %></td>
           </tr>
           <tr>
-            <td><%= f.label :name_kana, "食材フリガナ" %></td>
-            <td><%= f.text_field :name_kana, placeholder: "ニンジン" %></td>
+            <td><%= f.label :name_kana, "食材(ﾌﾘｶﾞﾅ)" %></td>
+            <td><%= f.text_field :name_kana, placeholder: "ﾆﾝｼﾞﾝ" %></td>
           </tr>
           <tr>
             <td><%= f.label :supplier, "仕入れ先", autocomplete: "supplier" %></td>
@@ -42,6 +42,8 @@
       </div>
       <% end %>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      <div class="error"><%= render 'layouts/error', object: @list %></div>
+    </div>
   </div>
 </div>
