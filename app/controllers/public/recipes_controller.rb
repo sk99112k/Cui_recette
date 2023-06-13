@@ -18,7 +18,7 @@ class Public::RecipesController < Public::ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.member = current_member
     if @recipe.save!
-      redirect_to recipes_path
+      redirect_to recipe_path(@recipe)
     else
       render :new
     end
