@@ -1,4 +1,5 @@
 class Public::RecipesController < Public::ApplicationController
+  before_action :is_matching_login_member, only: [:edit, :update, :destroy]
 
   def index
     @recipes = Recipe.all
@@ -56,6 +57,13 @@ class Public::RecipesController < Public::ApplicationController
 
   def search_params
     params.permit(:keyword)
+  end
+
+  def is_matching_login_member
+    recipe = Recipe.find(params[:id])
+    if recipe.member_id != current_member.id
+      redirect_to recipes_path
+    end
   end
 
 end
