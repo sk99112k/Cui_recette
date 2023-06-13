@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 2023_06_12_072754) do
   create_table "lists", force: :cascade do |t|
     t.string "name", null: false
     t.string "name_kana", null: false
-    t.integer "price", null: false
+    t.string "price", null: false
     t.string "supplier", null: false
-    t.float "lot", null: false
+    t.string "lot", null: false
     t.string "unit", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

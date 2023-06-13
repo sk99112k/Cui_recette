@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+  attr_accessor :list_storages_attributes
 
   has_one_attached :image
 
@@ -15,6 +16,7 @@ class Recipe < ApplicationRecord
   with_options presence: true do
     validates :title, length: { maximum: 50, message: 'は50字以内で入力して下さい' }
     validates :body
+    validates :list_storages_attributes
   end
 
   def get_image(width, height)

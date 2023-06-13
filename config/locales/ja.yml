@@ -1,5 +1,25 @@
 ja:
   activerecord:
+    attributes:
+      list:
+        name: "食材"
+        name_kana: "食材名(ｶﾅ)"
+        price: "値段"
+        supplier: "仕入れ先"
+        lot: "仕入れ出荷数量"
+        unit: "単位"
+      recipe:
+        title: "レシピ名"
+        body: "作り方"
+        list_storages_attributes: "材料と分量"
+        genre: "ジャンル"
+      member:
+        email: "メールアドレス"
+        name: "名前"
+      comment:
+        body: "コメント"
+      admin:
+        email: "メールアドレス"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
