@@ -8,7 +8,14 @@ class Recipe < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :list_storages, dependent: :destroy
   has_many :lists, through: :list_storages
+  # cocoonの記述(RecipeモデルとListStorageモデルを同時に作成・更新)
   accepts_nested_attributes_for :list_storages, reject_if: :all_blank, allow_destroy: true
+
+  # バリデーション
+  with_options presence: true do
+    validates :title, length: { maximum: 50, message: 'は50字以内で入力して下さい' }
+    validates :body
+  end
 
   def get_image(width, height)
     unless image.attached?
