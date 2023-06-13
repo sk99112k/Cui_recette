@@ -23,7 +23,7 @@
             <td class="list_storage_forms">
               <%# フォームを追加する場所。%>
               <%= f.fields_for :list_storages do |f| %>
-                <%= render 'list_storage_fields', f: list_storage %>
+                <%= render 'list_storage_fields', f: f %>
               <% end %>
             </td>
             <td>
@@ -33,7 +33,7 @@
           </tr>
           <tr>
             <td><%= f.label :body, "作り方" %></td>
-            <td><%= f.text_field :body %></td>
+            <td><%= f.text_area :body %></td>
           </tr>
           <tr>
             <td></td>
