@@ -8,12 +8,11 @@ class List < ApplicationRecord
     validates :name
     validates :supplier
     validates :unit
-    # 半角数値と小数点のみ" /\A[0-9]+(\.[0-9]+)?\z/ "
-    validates :lot, format: { with: /\A[0-9]+(\.[0-9]+)?\z/, message: 'は半角数字で入力して下さい'}
-    # 半角数値のみ "/\A[0-9]+\z/"
-    validates :price, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力して下さい'}
-    # 半角ｶﾀｶﾅのみ "/\A[ｧ-ﾝﾞﾟ]+\z/"
     validates :name_kana, format: { with: /\A[ｧ-ﾝﾞﾟ]+\z/, message: 'は半角ｶﾀｶﾅで入力して下さい'}
+    # "numericality"オプション. "allow_blank: true"空欄の場合にはバリデーションをスキップ  
+    validates :lot, numericality: { allow_blank: true, message: 'は数値で入力して下さい' }
+    # "only_integer: true"小数点以下の値を受け入れない
+    validates :price, numericality: { only_integer: true, allow_blank: true, message: 'は半角の整数値で入力して下さい' }
   end
 
 end
