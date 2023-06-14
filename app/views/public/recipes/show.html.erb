@@ -48,7 +48,7 @@
         <div class="name_quantity ml-5">
           <ul>
             <% @recipe.list_storages.each do |list_storage| %>
-            <li><%= list_storage.quantity %></li>
+            <li><%= list_storage.quantity %><%= list_storage.unit %></li>
             <% end %>
           </ul>
         </div>

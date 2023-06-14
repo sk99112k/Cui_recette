@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-  attr_accessor :list_storages_attributes
+  # attr_accessor :list_storages_attributes
 
   has_one_attached :image
 
@@ -13,10 +13,11 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :list_storages, reject_if: :all_blank, allow_destroy: true
 
   # バリデーション
+  validates_associated :list_storages
   with_options presence: true do
     validates :title, length: { maximum: 50, message: 'は50字以内で入力して下さい' }
     validates :body
-    validates :list_storages_attributes
+    # validates :list_storages
   end
 
   def get_image(width, height)
@@ -37,4 +38,4 @@ class Recipe < ApplicationRecord
     Recipe.where('title LIKE ?', "%#{search}%")
   end
 
-end
+end 
