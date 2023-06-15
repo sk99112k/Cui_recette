@@ -6,8 +6,12 @@
       <%= image_tag recipe.get_image(300, 300), class: "card-img-top img-fluid" %>
     <% end %>
     </div>
-    <div style="display:flex;">
-      <div class="recipe_title">
+    <div style="display:flex;" class="m-4">
+      <div id="book_mark_btn_<%= recipe.id %>" style="font-size:36px;">
+        <!--BookMark-->
+        <%= render 'public/book_marks/book_mark', recipe: recipe %>
+      </div>
+      <div class="recipe_title ml-4">
         <h4>
           <%= link_to recipe_path(recipe) do %>
             <%= recipe.title %>
@@ -15,10 +19,6 @@
         </h4>
         <%= recipe.member.name %><br>
         <%= recipe.created_at.strftime('%Y/%m/%d') %>
-      </div>
-      <div id="book_mark_btn_<%= recipe.id %>" style="font-size:36px;">
-        <!--BookMark-->
-        <%= render 'public/book_marks/book_mark', recipe: recipe %>
       </div>
     </div>
   </div>
