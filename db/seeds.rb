@@ -40,7 +40,7 @@ puts "------------member create-----------"
 
 Member.create!(
   [
-    {name: "sayaka",email: "sk@gmail.com",password: "syksyk"}
+    {name: "山田太郎",email: "yt@gmail.com",password: "yyyttt"}
   ]
 )
 
