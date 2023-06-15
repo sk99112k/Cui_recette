@@ -7,7 +7,7 @@
           <td><%= comment.body %></td>
           <td>
             <% if current_member == comment.member %>
-              <%= link_to "削除", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true %>
+              <%= link_to "削除", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true, :style=> "color: #DC143C;", class: "btn btn-link" %>
             <% end %>
           </td>
         </tr>

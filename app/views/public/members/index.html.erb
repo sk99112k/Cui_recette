@@ -17,7 +17,7 @@
         <% @members.each do |member| %>
         <tbody>
           <tr>
-            <td><%=link_to member_path(member) do %><%= member.name %><% end %></td>
+            <td><%=link_to member_path(member), class: "btn btn-link" do %><%= member.name %><% end %></td>
             <td><%= member.recipes.count %></td>
           </tr>
         </tbody>
