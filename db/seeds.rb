@@ -12,7 +12,7 @@ Admin.create!(
 
 puts "------------genre create-----------"
 
-@genre = Genre.create!(
+genre = Genre.create!(
   [
     {name: "日本料理"},
     {name: "イタリアン"},
@@ -24,7 +24,7 @@ puts "------------genre create-----------"
 
 puts "------------list create-----------"
 
-@list = List.create!(
+list = List.create!(
   [
     {name: "豚肉", name_kana: "ﾌﾞﾀﾆｸ", price: "1000", supplier: "にくやさん", lot: "1.0", unit: "kg"},
     {name: "人参", name_kana: "ﾆﾝｼﾞﾝ", price: "130", supplier: "八百屋", lot: "0.15", unit: "kg"},
@@ -39,7 +39,7 @@ puts "------------list create-----------"
 
 puts "------------member create-----------"
 
-@member = Member.create!(
+member = Member.create!(
   [
     {name: "山田太郎", email: "yt@gmail.com", password: "yyyttt"}
   ]
@@ -47,13 +47,23 @@ puts "------------member create-----------"
 
 puts "------------recipe create-----------"
 
-# Recipe.create!(
-#   [
-#     {title: 'カレー', body: '本格カレーの作り方', list_ids: List.limit(4).pluck(:id), genre: @genre[4], quantity: quantity[10,10,10,10] ,unit: unit['g','g','g','g'],
-#     image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/curry.jpg"), filename: "curry.jpg"),member: @member[0] },
-#     {title: 'パスタ', body: '本格スパゲッティの作り方', list_ids: @list[4..7].pluck(:id), genre: @genre[1], quantity: uantity[10,10,10,10] ,unit: unit['g','g','g','g'],
-#     image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/past.jpg"), filename: "past.jpg"),member: @member[1] }
-#   ]
-# )
+recipe = Recipe.create!(
+  [
+    {title: 'カレー', body: '本格カレーの作り方', genre_id: genre[4].id, member_id: member[0].id,
+    image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/curry.jpg"), filename: "curry.jpg")},
+
+    {title: 'パスタ', body: '本格スパゲッティの作り方', genre_id: genre[1].id, member_id: member[0].id,
+    image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/past.jpg"), filename: "past.jpg")}
+  ]
+)
+
+puts "------------list_storage create-----------"
+
+ListStorage.create!(
+  [
+    {list_id: list[1].id, recipe_id: recipe[0].id, quantity: 1.2, unit: "kg"},
+    {list_id: list[2].id, recipe_id: recipe[0].id, quantity: 2.0, unit: "kg"}
+  ]
+)
 
 puts "------------end-----------"
