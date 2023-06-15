@@ -9,7 +9,7 @@
           </td>
         </tr>
         <tr>
-          <td><%= image_tag @recipe.get_image(300,300) %></td>
+          <td><%= image_tag @recipe.get_image(320,320) %></td>
         </tr>
         <tr>
           <th style="font-size:30px; display:flex;">
@@ -25,8 +25,8 @@
         <tr>
           <td>
             <% if current_member == @recipe.member %>
-            <%= link_to "編集", edit_recipe_path(@recipe) %>
-            <%= link_to "削除", recipe_path(@recipe), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <%= link_to "編集", edit_recipe_path(@recipe), class: "btn btn-link" %>
+            <%= link_to "削除", recipe_path(@recipe), :style=> "color: #DC143C;", class: "btn btn-link", method: :delete, "data-confirm" => "本当に削除しますか？" %>
             <% end %>
           </td>
         </tr>

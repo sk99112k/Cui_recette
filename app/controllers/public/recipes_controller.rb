@@ -32,7 +32,7 @@ class Public::RecipesController < Public::ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
-      redirect_to recipes_path
+      redirect_to recipe_path(@recipe)
     else
       render :edit
     end

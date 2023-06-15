@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     resources :members ,only: [:show, :index] do
       get '/book_marks' => 'book_marks#book_marks'
     end
-    resources :lists, only: [:new, :create, :show, :index, :edit, :update, :destroy]
+    resources :lists, only: [:new, :create, :show, :index, :edit, :update]
     resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       collection do
         get '/search' => 'recipes#search'

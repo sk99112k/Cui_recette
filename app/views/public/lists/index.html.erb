@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto offset-sm-1">
+    <div class="mx-auto offset-sm-1" style="display:flex">
       <h3 class="m-5">食材一覧</h3>
-      <div class="m-5"><%= link_to "食材投稿", new_list_path %></div>
+      <div class="m-5 text-center"><%= link_to "食材投稿", new_list_path, class: "btn btn-link" %></div>
     </div>
   </div>
   <div class="row">
@@ -21,7 +21,7 @@
           <% @lists.each do |list| %>
           <tbody>
             <tr>
-              <td><%= link_to list_path(list) do %><%= list.name %><% end %></td>
+              <td><%= link_to list_path(list), class: "btn btn-link" do %><%= list.name %><% end %></td>
               <td><%= list.supplier %></td>
               <td><%= list.lot %> <%= list.unit %></td>
               <td><%= list.price %> 円</td>

@@ -16,10 +16,7 @@ class Public::BookMarksController < Public::ApplicationController
 
   def book_marks
     @member = Member.find(params[:member_id])
-    # Bookmarkモデルからmember_idを探して、recipe_idを取得している
     @book_mark_recipes = Recipe.where(id: BookMark.where(member_id: @member.id).pluck(:recipe_id))
-    # @recipe_id = BookMark.where(member_id: @member.id).pluck(:recipe_id)
-    # @book_mark_recipes = Recipe.find(@book_mark_recipes)
   end
 
 end

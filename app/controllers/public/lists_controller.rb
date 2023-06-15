@@ -14,7 +14,6 @@ class Public::ListsController < Public::ApplicationController
   end
 
   def index
-    # @lists = List.all
     @lists = List.order("name_kana")
   end
 
@@ -34,12 +33,6 @@ class Public::ListsController < Public::ApplicationController
       render :edit
     end
   end
-
-  # def destroy
-  #   @list = List.find(params[:id])
-  #   @list.destroy
-  #   redirect_to lists_path
-  # end
 
   private
 
