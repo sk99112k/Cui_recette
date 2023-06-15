@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-md-1"></div>
-    <div class="col-md-10 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
+    <div class="col-md-10 col-xs-12 mb-5" style="background:#F5DEB3; border-radius: 20px;">
 
       <%= form_with model: @recipe do |f| %>
       <div class="field mt-4 text-center">
@@ -17,23 +17,25 @@
           </tr>
           <tr>
             <td><%= f.label :title, "レシピ名", autocomplete: "title" %></td>
-            <td><%= f.text_field :title %></td>
+            <td><%= f.text_field :title, placeholder: "カレー", :size => "75" %></td>
           </tr>
           <tr class="details">
+            <td><%= f.label :list_id, '材料' %></td>
             <td class="list_storage_forms">
               <%# フォームを追加する場所。%>
               <%= f.fields_for :list_storages do |f| %>
                 <%= render 'list_storage_fields', f: f %>
               <% end %>
-            </td>
-            <td>
               <%# トラックの追加フォームをするボタン %>
               <%= link_to_add_association '追加する', f, :list_storages %>
             </td>
+          <tr>
+            <td><%= f.label :genre_id, "ジャンル" %></td>
+            <td class="text-center"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: 'form-control' %></td>
           </tr>
           <tr>
             <td><%= f.label :body, "作り方" %></td>
-            <td><%= f.text_area :body %></td>
+            <td><%= f.text_area :body, :size => "75x10" %></td>
           </tr>
           <tr>
             <td></td>
