@@ -7,6 +7,7 @@ class Recipe < ApplicationRecord
   belongs_to :genre
   has_many :book_marks, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :checks, dependent: :destroy
   has_many :list_storages, dependent: :destroy
   has_many :lists, through: :list_storages
   # cocoonの記述(RecipeモデルとListStorageモデルを同時に作成・更新)
@@ -39,4 +40,4 @@ class Recipe < ApplicationRecord
     Recipe.where('title LIKE ?', "%#{search}%")
   end
 
-end 
+end

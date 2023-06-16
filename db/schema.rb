@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_12_072754) do
+ActiveRecord::Schema.define(version: 2023_06_16_113409) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,6 +56,23 @@ ActiveRecord::Schema.define(version: 2023_06_12_072754) do
   create_table "book_marks", force: :cascade do |t|
     t.integer "member_id", null: false
     t.integer "recipe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "checks", force: :cascade do |t|
+    t.integer "member_id", null: false
+    t.integer "comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "recipe_id"
+    t.index ["comment_id"], name: "index_checks_on_comment_id"
+    t.index ["member_id"], name: "index_checks_on_member_id"
+  end
+
+  create_table "comment_checks", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "comment_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -118,4 +135,6 @@ ActiveRecord::Schema.define(version: 2023_06_12_072754) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "checks", "comments"
+  add_foreign_key "checks", "members"
 end
