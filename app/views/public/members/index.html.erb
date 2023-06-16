@@ -1,28 +1,35 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto m-5">
-      <h3>ユーザー一覧</h3>
+    <div class="mx-auto offset-sm-1">
+      <h3 class="m-5">ユーザー一覧</h3>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-sm-9 px-sm-0 mx-auto mb-5">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>名前</th>
-            <th>レシピ数</th>
-          </tr>
-        </thead>
-        <% @members.each do |member| %>
-        <tbody>
-          <tr>
-            <td><%=link_to member_path(member), class: "btn btn-link" do %><%= member.name %><% end %></td>
-            <td><%= member.recipes.count %></td>
-          </tr>
-        </tbody>
-        <% end %>
-      </table>
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-xs-12 mb-5">
+      <div style="background:#F5DEB3; border-radius: 20px;">
+        <div class="list mt-4 text-center">
+          <table class="table table-borderless table-hover">
+            <thead>
+              <tr>
+                <th>名前</th>
+                <th>レシピ数</th>
+              </tr>
+            </thead>
+            <% @members.each do |member| %>
+            <tbody>
+              <tr>
+                <td><%=link_to member_path(member), class: "btn btn-link" do %><%= member.name %><% end %></td>
+                <td><%= member.recipes.count %> 件</td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <%= paginate @members, theme: 'bootstrap-5' %>
     </div>
   </div>
+
 </div>
