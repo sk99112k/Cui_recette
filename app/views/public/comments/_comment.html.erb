@@ -2,6 +2,7 @@
       <table class="table table-borderless">
         <% recipe.comments.each do |comment| %>
         <tr>
+          <td id="comment_check_btn_<%= comment.id %>"><%= render 'public/checks/comment_check', comment: comment, recipe: recipe %></td>
           <td><%= comment.created_at.strftime('%m/%d')%></td>
           <td><%= comment.member.name %></td>
           <td><%= comment.body %></td>
