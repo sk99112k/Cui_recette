@@ -5,7 +5,7 @@ class List < ApplicationRecord
 
   # バリデーション
   with_options presence: true do
-    validates :name, presence: true
+    validates :name
     validates :supplier
     validates :unit
     validates :name_kana, format: { with: /\A[ｧ-ﾝﾞﾟ]+\z/, message: 'は半角ｶﾀｶﾅで入力して下さい'}
