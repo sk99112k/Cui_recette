@@ -11,6 +11,7 @@ class Recipe < ApplicationRecord
   has_many :lists, through: :list_storages
   # cocoonの記述(RecipeモデルとListStorageモデルを同時に作成・更新)
   accepts_nested_attributes_for :list_storages, reject_if: :all_blank, allow_destroy: true
+  # accepts_nested_attributes_for :lists
 
   # バリデーション
   validates_associated :list_storages

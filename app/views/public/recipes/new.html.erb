@@ -7,8 +7,15 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10 col-xs-12 mb-5" style="background:#F5DEB3; border-radius: 20px;">
-
+      
       <%= form_with model: @recipe do |f| %>
+      
+      <%#= form_with model: @recipe do |form| %>
+        <%#= form.fields_for :lists do |list_form| %>
+          <%#= list_form.text_field :name %>
+        <%# end %>
+        <%#= form.submit 'Create Recipe' %>
+      <%# end %>
       <div class="field mt-4 text-center">
         <table class="table table-borderless">
           <tr>
@@ -29,6 +36,7 @@
               <%# トラックの追加フォームをするボタン %>
               <%= link_to_add_association '追加する', f, :list_storages %>
             </td>
+          </tr>
           <tr>
             <td><%= f.label :genre_id, "ジャンル" %></td>
             <td class="text-center"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: 'form-control' %></td>

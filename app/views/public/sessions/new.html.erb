@@ -32,7 +32,8 @@
   </div>
 
   <div class="row">
-    <div class="mx-auto offset-sm-1 mt-4">
+    <div class="mx-auto offset-sm-1 mt-4 text-center">
+      <%= link_to "ゲストログイン", guests_guest_sign_in_path, method: :post, class: "btn btn-link" %><br>
       <%= link_to "管理者ログインページ", new_admin_session_path, class: "btn btn-link" %>
     </div>
   </div>

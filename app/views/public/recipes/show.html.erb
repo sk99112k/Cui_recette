@@ -41,7 +41,11 @@
         <div class="name_title ml-5">
           <ul>
             <% @recipe.list_storages.each do |list_storage| %>
-            <li><%= list_storage.list.name %></li>
+            <li>
+              <%= link_to list_path(list_storage.list.id), :style=> "color: #017bfe;" do %>
+                <%= list_storage.list.name %>
+              <% end %>
+            </li>
             <% end %>
           </ul>
         </div>
