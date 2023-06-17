@@ -1,25 +1,38 @@
 <div class="col-8">
-      <table class="table table-borderless">
-        <% recipe.comments.each do |comment| %>
-        <tr>
-          <td id="comment_check_btn_<%= comment.id %>">
-            <%= render 'public/checks/comment_check', comment: comment, recipe: recipe %>
-          </td>
-          <td><%= comment.created_at.strftime('%m/%d')%></td>
-          <td><%= comment.member.name %></td>
-          <td><%= comment.body %></td>
-          <td>
-            <% if current_member == comment.member %>
-              <%= link_to "削除", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true, :style=> "color: #DC143C;", class: "btn btn-link" %>
-            <% end %>
-          </td>
-        </tr>
+  <table class="table table-borderless">
+    <% recipe.comments.each do |comment| %>
+    <tr>
+      <!--check box-->
+      <td id="comment_check_btn_<%= comment.id %>">
+        <%= render 'public/checks/comment_check', comment: comment, recipe: recipe %>
+      </td>
+      <td class="comment_text_line"><%= comment.created_at.strftime('%m/%d')%></td>
+      <td class="comment_text_line"><%= comment.member.name %></td>
+      <td class="comment_text_line"><%= comment.body %></td>
+      <td>
+        <% if current_member == comment.member %>
+          <%= link_to "削除", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true, :style=> "color: #DC143C;" %>
         <% end %>
-      </table>
-    </div>
-    <div class="col-4">
-      <%= form_with model: [recipe,comment], url:recipe_comments_path(recipe,comment), local: false, method: :post do |f| %>
-        <%= f.text_area :body, rows: '5', placeholder: "コメント" %>
-        <%= f.submit "作成" %>
-      <% end %>
-    </div>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<div class="col-4">
+  <%= form_with model: [recipe,comment], url:recipe_comments_path(recipe,comment), local: false, method: :post do |f| %>
+    <%= f.text_area :body, rows: '5', placeholder: "コメント" %>
+    <%= f.submit "作成" %>
+  <% end %>
+</div>
+
+
+<script>
+  $(function(){
+    $('.comment_text_line').on('click', function(){
+      $(this).css('text-decoration', 'line-through');
+    });
+    $('.comment_text_line').on('dblclick', function(){
+      $(this).css('text-decoration', '');
+    });
+  });
+</script>

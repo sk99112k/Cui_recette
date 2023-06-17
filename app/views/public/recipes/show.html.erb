@@ -17,16 +17,16 @@
               <!--BookMark-->
               <%= render 'public/book_marks/book_mark', recipe: @recipe %>
             </div>
-            <p>
+            <p class="ml-5">
               <%= @recipe.title %>
             </p>
           </th>
         </tr>
         <tr>
-          <td>
+          <td style="text-align:center;">
             <% if current_member == @recipe.member %>
-            <%= link_to "編集", edit_recipe_path(@recipe), class: "btn btn-link" %>
-            <%= link_to "削除", recipe_path(@recipe), :style=> "color: #DC143C;", class: "btn btn-link", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <%= link_to "編集", edit_recipe_path(@recipe), class: "mr-5" %>
+            <%= link_to "削除", recipe_path(@recipe), :style=> "color: #DC143C;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
             <% end %>
           </td>
         </tr>
@@ -50,7 +50,7 @@
           </ul>
         </div>
         <div class="name_quantity ml-5">
-          <ul>
+          <ul style="list-style:none">
             <% @recipe.list_storages.each do |list_storage| %>
             <li><%= list_storage.quantity %><%= list_storage.unit %></li>
             <% end %>
@@ -62,7 +62,7 @@
     <table class="table table-hover my-5">
       <tr>
         <th>作り方</th>
-        <td><%= @recipe.body %></td>
+        <td class="text-left"><%= simple_format(@recipe.body) %></td>
       </tr>
     </table>
   </div>
