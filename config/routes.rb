@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "/about" => "homes#about"
     resources :lists, only: [:new, :create, :show, :index, :edit, :update]
+    post '/create_list' => 'lists#create_list'
 
     resources :members ,only: [:show, :index] do
       get '/book_marks' => 'book_marks#book_marks'

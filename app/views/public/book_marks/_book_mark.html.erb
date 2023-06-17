@@ -1,5 +1,5 @@
 <% if recipe.bookmarked_by?(current_member) %>
   <%= link_to recipe_book_marks_path(recipe), method: :delete, remote: true do %><i class="fa-solid fa-bookmark" style="color:#FF9933;"></i><% end %>
 <% else %>
-  <%= link_to recipe_book_marks_path(recipe), method: :post, remote: true do %><i class="fa-regular fa-bookmark"></i><% end %>
+  <%= link_to recipe_book_marks_path(recipe), method: :post, remote: true do %><i class="fa-regular fa-bookmark" style="color:black;"></i><% end %>
 <% end %>

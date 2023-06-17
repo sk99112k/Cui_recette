@@ -1,0 +1,13 @@
+var selectElement = $('.select_list');
+//オプションを空にする
+selectElement.empty();
+//一度全部消して、追加する。
+var lists = <%= raw @lists.to_json %>
+//list.each_with_index do |index, list|
+$.each(lists, function(index, option) {
+  selectElement.append($('<option>', {
+    value: option.value,
+    text: option.text
+  }));
+});
+
