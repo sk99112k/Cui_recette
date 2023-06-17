@@ -36,7 +36,7 @@
           </tr>
           <tr>
             <td><%= f.label :genre_id, "ジャンル" %></td>
-            <td class="text-left"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"} %></td>
+            <td class="text-left"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "ジャンルを選択"} %></td>
           </tr>
           <tr>
             <td><%= f.label :body, "作り方" %></td>
