@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto offset-sm-1">
+    <div class="mx-auto offset-sm-1" style="display:flex;">
       <h3 class="m-5">レシピ新規投稿</h3>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
         食材新規作成
       </button>
     </div>
@@ -16,31 +16,31 @@
       <div class="field mt-4 text-center">
         <table class="table table-borderless">
           <tr>
-            <td><%= f.label :image, "写真" %></td>
-            <td><%= f.file_field :image, autofocus: true %></td>
+            <td style="width:30%;"><%= f.label :image, "写真" %></td>
+            <td style="width:70%;" class="text-left"><%= f.file_field :image, autofocus: true %></td>
           </tr>
           <tr>
             <td><%= f.label :title, "レシピ名", autocomplete: "title" %></td>
-            <td><%= f.text_field :title, placeholder: "カレー", :size => "75" %></td>
+            <td><%= f.text_field :title, placeholder: "カレー", class: "w-100" %></td>
           </tr>
           <tr class="details">
             <td><%= f.label :list_id, '材料' %></td>
-            <td class="list_storage_forms">
+            <td class="list_storage_forms text-left">
+              <%# トラックの追加フォームをするボタン %>
+              <%= link_to_add_association '追加する', f, :list_storages %><br>
               <%# フォームを追加する場所。%>
               <%= f.fields_for :list_storages do |f| %>
                 <%= render 'list_storage_fields', f: f %>
               <% end %>
-              <%# トラックの追加フォームをするボタン %>
-              <%= link_to_add_association '追加する', f, :list_storages %>
             </td>
           </tr>
           <tr>
             <td><%= f.label :genre_id, "ジャンル" %></td>
-            <td class="text-center"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"}, class: 'form-control' %></td>
+            <td class="text-left"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "選択してください"} %></td>
           </tr>
           <tr>
             <td><%= f.label :body, "作り方" %></td>
-            <td><%= f.text_area :body, :size => "75x10" %></td>
+            <td><%= f.text_area :body, class: "w-100", rows: '8' %></td>
           </tr>
           <tr>
             <td></td>
