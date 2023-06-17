@@ -13,6 +13,7 @@ class Public::RecipesController < Public::ApplicationController
 
   def new
     @recipe = Recipe.new
+    @list = List.new
   end
 
   def create
