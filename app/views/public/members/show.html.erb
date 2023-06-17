@@ -5,10 +5,10 @@
       <div class="col-3 ml-auto">
       <% if current_member.name != "guestuser" %>
         <% if current_member == @member %>
-        <p><%= link_to "登録情報編集", edit_member_registration_path, class: "btn btn-link" %>
+        <p><%= link_to "登録情報編集", edit_member_registration_path %>
         <% end %>
       <% end %><br>
-      <%= link_to "BookMark一覧", member_book_marks_path(@member), class: "btn btn-link" %></p>
+      <%= link_to "BookMark一覧", member_book_marks_path(@member) %></p>
       </div>
     </div>
   </div>
