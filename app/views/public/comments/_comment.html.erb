@@ -1,6 +1,7 @@
 <div class="col-8">
-  <table class="table table-borderless">
+  <table class="table table-borderless table-hover">
     <% recipe.comments.each do |comment| %>
+    <tr>コメント</tr>
     <tr>
       <!--check box-->
       <td id="comment_check_btn_<%= comment.id %>">
