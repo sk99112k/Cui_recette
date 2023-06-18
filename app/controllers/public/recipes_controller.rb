@@ -13,6 +13,7 @@ class Public::RecipesController < Public::ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.list_storages.build
     @list = List.new
   end
 

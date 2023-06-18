@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get "/about" => "homes#about"
     resources :lists, only: [:new, :create, :show, :index, :edit, :update]
     post '/create_list' => 'lists#create_list'
+    get '/ajax_list' => 'lists#ajax_list'
 
     resources :members ,only: [:show, :index] do
       get '/book_marks' => 'book_marks#book_marks'

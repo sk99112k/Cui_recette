@@ -7,15 +7,40 @@
       <td id="comment_check_btn_<%= comment.id %>">
         <%= render 'public/checks/comment_check', comment: comment, recipe: recipe %>
       </td>
-      <td class="comment_text_line"><%= comment.created_at.strftime('%m/%d')%></td>
-      <td class="comment_text_line"><%= comment.member.name %></td>
-      <td class="comment_text_line"><%= comment.body %></td>
+      <td><span id="comment_created_at_<%= comment.id %>" class="<%= comment.checked_by?(current_member) ? 'line-through' : '' %>"><%= comment.created_at.strftime('%m/%d')%></span></td>
+      <td><span id="comment_member_name_<%= comment.id %>" class="<%= comment.checked_by?(current_member) ? 'line-through' : '' %>"><%= comment.member.name %></span></td>
+      <td><span id="comment_body_<%= comment.id %>" class="<%= comment.checked_by?(current_member) ? 'line-through' : '' %>"><%= comment.body %></span></td>
       <td>
         <% if current_member == comment.member %>
           <%= link_to "削除", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true, :style=> "color: #DC143C;" %>
         <% end %>
       </td>
     </tr>
+
+    <style>
+      .line-through {
+        text-decoration: line-through;
+      }
+    </style>
+
+    <script>
+      // コメントのcheckboxをクリックすると取り消し線を表示
+      $(function(){
+        $('#comment_check_btn_<%= comment.id %>').on('click', function(){
+
+          if ($('#comment_created_at_<%= comment.id %>').hasClass('line-through')) {
+            $('#comment_created_at_<%= comment.id %>').removeClass('line-through');
+            $('#comment_member_name_<%= comment.id %>').removeClass('line-through');
+            $('#comment_body_<%= comment.id %>').removeClass('line-through');
+          } else {
+            $('#comment_created_at_<%= comment.id %>').addClass('line-through');
+            $('#comment_member_name_<%= comment.id %>').addClass('line-through');
+            $('#comment_body_<%= comment.id %>').addClass('line-through');
+          }
+
+        });
+      });
+    </script>
     <% end %>
   </table>
 </div>
@@ -26,14 +51,3 @@
   <% end %>
 </div>
 
-
-<script>
-  $(function(){
-    $('.comment_text_line').on('click', function(){
-      $(this).css('text-decoration', 'line-through');
-    });
-    $('.comment_text_line').on('dblclick', function(){
-      $(this).css('text-decoration', '');
-    });
-  });
-</script>
