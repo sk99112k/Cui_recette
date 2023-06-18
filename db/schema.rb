@@ -70,13 +70,6 @@ ActiveRecord::Schema.define(version: 2023_06_16_113409) do
     t.index ["member_id"], name: "index_checks_on_member_id"
   end
 
-  create_table "comment_checks", force: :cascade do |t|
-    t.integer "member_id"
-    t.integer "comment_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "comments", force: :cascade do |t|
     t.integer "recipe_id", null: false
     t.integer "member_id", null: false

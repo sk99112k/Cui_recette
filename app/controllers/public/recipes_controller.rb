@@ -13,7 +13,7 @@ class Public::RecipesController < Public::ApplicationController
 
   def new
     @recipe = Recipe.new
-    # @recipe.lists.build
+    @list = List.new
   end
 
   def create
@@ -54,7 +54,6 @@ class Public::RecipesController < Public::ApplicationController
   def recipe_params
     # :id, :_destroyをつけることで、編集と削除が可能になる
     params.require(:recipe).permit(:title, :body, :image, :genre_id, list_storages_attributes: [:list_id, :id, :quantity, :unit, :_destroy])
-    # , lists_attributes: [:name]
   end
 
   def search_params

@@ -9,6 +9,7 @@
         <ul class="navbar-nav ml-auto">
         <% if member_signed_in? %>
         <!--Memberログイン後のheader-->
+          <li><%= link_to "マイページ", member_path(current_member), class: 'nav-link text-white' %></li>
           <li><%= link_to "新規投稿", new_recipe_path, class: 'nav-link text-white' %></li>
           <li><%= link_to "ユーザー", members_path, class: 'nav-link text-white' %></li>
           <li><%= link_to "レシピ", recipes_path, class: 'nav-link text-white' %></li>

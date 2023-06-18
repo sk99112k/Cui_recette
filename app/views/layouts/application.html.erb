@@ -24,5 +24,11 @@
     <footer class="justify-center" style="background-color:#cc5e58;">
       <%= render 'layouts/footer' %>
     </footer>
+    
+    <script>
+      // Modalで食材を新規投稿するための記述
+      var lists = <%= raw List.all.map {|list| {value: list.id, text: list.name}}.to_json %>;
+　　</script>
+　　
   </body>
 </html>

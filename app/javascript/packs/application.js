@@ -10,7 +10,7 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application"; 
+import "../stylesheets/application";
 
 require("jquery")
 require("@nathanvda/cocoon")
@@ -18,3 +18,42 @@ require("@nathanvda/cocoon")
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+
+jQuery(document).on('turbolinks:load', function(){
+
+$('input[name="commit"]').on('click', function() {
+
+  $(".close").click();
+});
+
+
+
+
+});
+
+
+jQuery(document).on('turbolinks:load', function() {
+  $('.add_fields').on('click', function() {
+    setTimeout(function() {
+      append_option();
+    }, 300);
+  });
+});
+
+function append_option() {
+  var selectElement = $('.select_list');
+  selectElement.empty();
+
+  selectElement.append($('<option>', {
+    text: '食材を選択'
+  }));
+
+  $.each(lists, function(index, option) {
+    selectElement.append($('<option>', {
+      value: option.value,
+      text: option.text
+    }));
+  });
+}
