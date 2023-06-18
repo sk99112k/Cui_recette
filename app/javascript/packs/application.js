@@ -46,6 +46,10 @@ function append_option() {
   var selectElement = $('.select_list');
   selectElement.empty();
 
+  selectElement.append($('<option>', {
+    text: '食材を選択'
+  }));
+
   $.each(lists, function(index, option) {
     selectElement.append($('<option>', {
       value: option.value,
