@@ -12,11 +12,14 @@ class Public::ListsController < Public::ApplicationController
       render "new"
     end
   end
-  
+
   def create_list
     @list = List.new(list_params)
     @list.save
-    @lists = List.all.map {|list| {value: list.id, text: list.name}}
+  end
+
+  def ajax_list
+    render json: List.all.map {|list| {value: list.id, text: list.name}}
   end
 
   def index
