@@ -16,7 +16,7 @@ class Public::BookMarksController < Public::ApplicationController
 
   def book_marks
     @member = Member.find(params[:member_id])
-    @book_mark_recipes = Recipe.where(id: BookMark.where(member_id: @member.id).pluck(:recipe_id))
+    @book_mark_recipes = Recipe.where(id: BookMark.where(member_id: @member.id).pluck(:recipe_id)).page(params[:page]).per(12)
   end
 
 end
