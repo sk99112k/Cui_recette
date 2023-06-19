@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center mb-5">
   <% recipes.each do |recipe| %>
   <div class="card m-2  recipe_all" style="width:16rem; border-radius:20px;">
     <div class="recipe_image">
@@ -29,6 +29,7 @@
 
 
 <script>
+  // cardにカーソルを当てた時のJS
   $('.recipe_all').on('mouseenter', function () {
     $(this).css('box-shadow', '0 10px 25px 0 rgba(0, 0, 0, .5)');
   });
