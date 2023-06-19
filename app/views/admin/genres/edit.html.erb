@@ -12,9 +12,18 @@
       <% end %>
     </div>
   </div>
+
   <div class="row">
     <div class="mx-auto text-center">
       <div class="error"><%= render 'layouts/error', object: @genre %></div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="mx-auto text-center">
+      <div class="back_btn">
+        <%= link_to admin_genres_path do %><i class="fas fa-angle-double-left"></i> <span>戻る</span><% end %>
+      </div>
     </div>
   </div>
 </div>
