@@ -27,6 +27,7 @@
 
     <script>
       // Modalで食材を新規投稿するための記述
+      // Listモデルの全てのレコードを取得し、それぞれのidとnameの値を取り出す。".to_json"でJSON形式の文字列に変換。
       var lists = <%= raw List.all.map {|list| {value: list.id, text: list.name}}.to_json %>;
 　　</script>
 

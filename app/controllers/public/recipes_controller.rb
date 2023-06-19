@@ -29,6 +29,7 @@ class Public::RecipesController < Public::ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @list = List.new
   end
 
   def update
@@ -53,7 +54,7 @@ class Public::RecipesController < Public::ApplicationController
   private
 
   def recipe_params
-    # :id, :_destroyをつけることで、編集と削除が可能になる
+    # "cocoon" (:id, :_destroyをつけることで、編集と削除が可能になる)
     params.require(:recipe).permit(:title, :body, :image, :genre_id, list_storages_attributes: [:list_id, :id, :quantity, :unit, :_destroy])
   end
 
