@@ -24,19 +24,18 @@ ActiveStorage.start()
 jQuery(document).on('turbolinks:load', function(){
 
   $('input[name="commit"]').on('click', function() {
-
     $(".close").click();
+  });
+
+  $('#list_modal_btn').on('click',function(){
+    $('#list_name, #list_name_kana, #list_supplier, #list_lot, #list_unit, #list_price').val("")
   });
 
 });
 
 
 $(document).on('turbolinks:load', function() {
-  // $('.add_fields').on('click', function() {
-  //   // setTimeout(function() {
-  //   //   append_option();
-  //   // }, 300);
-  // });
+  
   $('#list_storage-forms').on('cocoon:before-insert', function(e, insertedItem, originalEvent) {
 
     // Cocoonの新規追加時の追加されたエレメントのIDを取得
