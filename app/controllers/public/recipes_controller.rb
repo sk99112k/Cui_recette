@@ -2,7 +2,7 @@ class Public::RecipesController < Public::ApplicationController
   before_action :is_matching_login_member, only: [:edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.page(params[:page]).per(9)
     @genres = Genre.all
   end
 

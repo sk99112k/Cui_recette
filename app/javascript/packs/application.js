@@ -23,23 +23,19 @@ ActiveStorage.start()
 
 jQuery(document).on('turbolinks:load', function(){
 
-$('input[name="commit"]').on('click', function() {
+  $('input[name="commit"]').on('click', function() {
+    $(".close").click();
+  });
 
-  $(".close").click();
-});
-
-
-
+  $('#list_modal_btn').on('click',function(){
+    $('#list_name, #list_name_kana, #list_supplier, #list_lot, #list_unit, #list_price').val("")
+  });
 
 });
 
 
 $(document).on('turbolinks:load', function() {
-  // $('.add_fields').on('click', function() {
-  //   // setTimeout(function() {
-  //   //   append_option();
-  //   // }, 300);
-  // });
+  
   $('#list_storage-forms').on('cocoon:before-insert', function(e, insertedItem, originalEvent) {
 
     // Cocoonの新規追加時の追加されたエレメントのIDを取得
@@ -70,9 +66,8 @@ $(document).on('turbolinks:load', function() {
           text: option.text
         }));
       });
-
-
     })
+
     // 検索失敗時には、その旨をダイアログ表示
     .fail(function() {
       window.alert('正しい結果を得られませんでした。');
@@ -80,19 +75,3 @@ $(document).on('turbolinks:load', function() {
 
   });
 });
-
-// function append_option() {
-//   var selectElement = $('.select_list');
-//   selectElement.empty();
-
-//   selectElement.append($('<option>', {
-//     text: '食材を選択'
-//   }));
-
-//   $.each(lists, function(index, option) {
-//     selectElement.append($('<option>', {
-//       value: option.value,
-//       text: option.text
-//     }));
-//   });
-// }
