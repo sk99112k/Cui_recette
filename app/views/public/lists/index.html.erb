@@ -23,7 +23,7 @@
             <% @lists.each do |list| %>
             <tbody>
               <tr>
-                <td><%= link_to list_path(list), style: "color: #017bfe;" do %><%= list.name %><% end %></td>
+                <td><%= link_to list_path(list) do %><%= list.name %><% end %></td>
                 <td><%= list.supplier %></td>
                 <td><%= list.lot %> <%= list.unit %></td>
                 <td><%= list.price %> 円</td>
