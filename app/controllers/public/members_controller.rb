@@ -6,7 +6,7 @@ class Public::MembersController < Public::ApplicationController
 
   def show
     @member = Member.find(params[:id])
-    @recipes = @member.recipes.page(params[:page]).per(12)
+    @recipes = @member.recipes.page(params[:page]).per(6)
   end
 
   private
