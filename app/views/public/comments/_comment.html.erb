@@ -1,7 +1,7 @@
 <div class="col-8">
   <table class="table table-borderless table-hover">
+    <!--<tr>コメント</tr>-->
     <% recipe.comments.each do |comment| %>
-    <tr>コメント</tr>
     <tr>
       <!--check box-->
       <td id="comment_check_btn_<%= comment.id %>">
@@ -12,7 +12,7 @@
       <td><span id="comment_body_<%= comment.id %>" class="<%= comment.checked_by?(current_member) ? 'line-through' : '' %>"><%= comment.body %></span></td>
       <td>
         <% if current_member == comment.member %>
-          <%= link_to "削除", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true, :style=> "color: #DC143C;" %>
+          <%= link_to "削除", recipe_comment_path(comment.recipe,comment), method: :delete, remote: true, style: "color: #DC143C;" %>
         <% end %>
       </td>
     </tr>
@@ -40,9 +40,9 @@
   </table>
 </div>
 
-<div class="col-4">
+<div class="col-4" style="position:absolute; right:0px; bottom:5px;">
   <%= form_with model: [recipe,comment], url:recipe_comments_path(recipe,comment), local: false, method: :post do |f| %>
-    <%= f.text_area :body, rows: '5', placeholder: "コメント" %>
+    <%= f.text_area :body, rows: '3', placeholder: "コメント" %>
     <%= f.submit "作成" %>
   <% end %>
 </div>

@@ -23,7 +23,7 @@
           </th>
         </tr>
         <tr>
-          <td style="text-align:center;">
+          <td>
             <% if current_member == @recipe.member %>
             <%= link_to "編集", edit_recipe_path(@recipe), class: "mr-5" %>
             <%= link_to "削除", recipe_path(@recipe), :style=> "color: #DC143C;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
@@ -34,15 +34,15 @@
     </div>
 
     <div class="col-lg-8 offset-md-1">
-      <h5 class="name mt-5 mb-3 ml-5">
+      <h4 class="name mt-5 mb-3 ml-5">
         <span>材料</span>
-      </h5>
-      <div style="display:flex;">
+      </h4>
+      <div style="display:flex; font-size:20px;">
         <div class="name_title ml-5">
           <ul>
             <% @recipe.list_storages.each do |list_storage| %>
             <li>
-              <%= link_to list_path(list_storage.list.id), :style=> "color: #017bfe;" do %>
+              <%= link_to list_path(list_storage.list.id), style: "color: #017bfe;" do %>
                 <%= list_storage.list.name %>
               <% end %>
             </li>
@@ -52,7 +52,7 @@
         <div class="name_quantity ml-5">
           <ul style="list-style:none">
             <% @recipe.list_storages.each do |list_storage| %>
-            <li><%= list_storage.quantity %><%= list_storage.unit %></li>
+            <li><%= list_storage.quantity %> <%= list_storage.unit %></li>
             <% end %>
           </ul>
         </div>
@@ -67,7 +67,7 @@
     </table>
   </div>
 
-  <div class="row mt-5" id="comment">
+  <div class="row" id="comment" style="position:relative;">
     <!--コメント-->
     <%= render 'public/comments/comment', recipe: @recipe, comment: @comment %>
   </div>

@@ -6,7 +6,6 @@
   color: #696969;
   background-color: #fbfaf3;
 }
-
 .page-item.active .page-link {
   background-color: #B16A11;
 }
@@ -17,7 +16,6 @@
     width:100%;/*スライダー内の画像を横幅100%に*/
     height:auto;
 }
-
 // slickのJSで書かれるタグ内、スライド左右の余白調整
 .slider .slick-slide {
     margin:0 10px;/*スライド左右の余白調整*/
@@ -27,4 +25,18 @@
 // コメントの取り消し銭を表示させるCSS
 .line-through {
   text-decoration: line-through;
+}
+
+
+// ヘッダーを上部に固定
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999; /* ヘッダーを最前面に表示するための値 */
+}
+/* メインコンテンツの上部の余白を調整するためのスタイル */
+main {
+  padding-top: 80px; /* ヘッダーの高さに合わせて調整 */
 }

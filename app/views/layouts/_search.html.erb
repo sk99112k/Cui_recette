@@ -4,7 +4,7 @@
       <% if member_signed_in? %>
       <!--Memberログイン中のみ表示させる-->
         <%= form_with url: search_recipes_path, local: true, method: :get do |f| %>
-        <%= f.text_field :search, class: "placeholder", placeholder: " キーワード入力", style: "border-radius:25px;" %>
+        <%= f.text_field :search, class: "placeholder", placeholder: " レシピ名検索", style: "border-radius:25px;" %>
         <button type="submit"><i class="fas fa-search"></i></button>
         <% end %>
       <% end %>
