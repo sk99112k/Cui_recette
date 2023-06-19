@@ -1,16 +1,5 @@
 @use '~bootstrap/scss/bootstrap';
 
-// input[type="text"] {
-//         width: 300px;
-//         height: 40px;
-//     }
-
-// input[type="password"] {
-//         width: 300px;
-//         height: 40px;
-//     }
-
-
 // ページネーションのCSS
 .pagination>li>a {
   border: none;
@@ -29,7 +18,13 @@
     height:auto;
 }
 
-/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+// slickのJSで書かれるタグ内、スライド左右の余白調整
 .slider .slick-slide {
     margin:0 10px;/*スライド左右の余白調整*/
+}
+
+
+// コメントの取り消し銭を表示させるCSS
+.line-through {
+  text-decoration: line-through;
 }

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="mx-auto offset-sm-1" style="display:flex;">
       <h3 class="m-5">レシピ新規投稿</h3>
-      <!-- Button trigger modal -->
+      <!-- modalのボタン -->
       <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
         食材新規作成
       </button>
@@ -52,6 +52,7 @@
               <%= f.fields_for :list_storages do |f| %>
                 <%= render 'list_storage_fields', ls: f %>
               <% end %>
+              <!--formを追加する場所-->
               <div id="list_storage-forms"></div>
             </td>
           </tr>
@@ -79,4 +80,4 @@
 </div>
 
 <!-- モーダルの記述 -->
-<%= render 'public/lists/list_new', list: @list %>
+<%= render 'public/lists/list_modal', list: @list %>

@@ -17,12 +17,6 @@
       </td>
     </tr>
 
-    <style>
-      .line-through {
-        text-decoration: line-through;
-      }
-    </style>
-
     <script>
       // コメントのcheckboxをクリックすると取り消し線を表示
       $(function(){
@@ -41,9 +35,11 @@
         });
       });
     </script>
+
     <% end %>
   </table>
 </div>
+
 <div class="col-4">
   <%= form_with model: [recipe,comment], url:recipe_comments_path(recipe,comment), local: false, method: :post do |f| %>
     <%= f.text_area :body, rows: '5', placeholder: "コメント" %>
