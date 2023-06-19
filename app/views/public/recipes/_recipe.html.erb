@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+  <% recipes.each do |recipe| %>
+  <div class="card m-2  recipe_all" style="width:16rem; border-radius:20px;">
+    <div class="recipe_image">
+      <%= link_to recipe_path(recipe.id) do %>
+        <%= image_tag recipe.get_image(300, 300), class: "card-img-top img-fluid", style: "border-radius:20px 20px 0 0;" %>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title" style="display:flex;">
+        <div id="book_mark_btn_<%= recipe.id %>" style="font-size:36px;">
+          <!--BookMark-->
+          <%= render 'public/book_marks/book_mark', recipe: recipe %>
+        </div>
+        <div class="recipe-title ml-3">
+          <%= link_to recipe_path(recipe) do %>
+            <%= recipe.title %>
+          <% end %>
+        </div>
+      </h5>
+      <h6 class="card-text text-center">
+        <%= recipe.member.name %><br>
+        <%= recipe.created_at.strftime('%Y/%m/%d') %>
+      </h6>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+<script>
+  $('.recipe_all').on('mouseenter', function () {
+    $(this).css('box-shadow', '0 10px 25px 0 rgba(0, 0, 0, .5)');
+  });
+  $('.recipe_all').on('mouseleave', function () {
+    $(this).css('box-shadow', '');
+  });
+</script>

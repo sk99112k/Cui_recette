@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto offset-sm-1" style="display:flex">
+      <h3 class="m-5">食材一覧</h3>
+      <div class="m-5 text-center"><%= link_to "食材投稿", new_list_path, class: "btn btn-link" %></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-xs-12 mb-5">
+      <div style="background:#F5DEB3; border-radius: 20px;">
+        <div class="list mt-4 text-center">
+          <table class="table table-borderless table-hover">
+            <thead>
+              <tr>
+                <th>食材</th>
+                <th>仕入れ先</th>
+                <th>仕入れロット数</th>
+                <th>値段</th>
+              </tr>
+            </thead>
+            <% @lists.each do |list| %>
+            <tbody>
+              <tr>
+                <td><%= link_to list_path(list), :style=> "color: #017bfe;" do %><%= list.name %><% end %></td>
+                <td><%= list.supplier %></td>
+                <td><%= list.lot %> <%= list.unit %></td>
+                <td><%= list.price %> 円</td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+        </div>
+      </div>
+      <%= paginate @lists, theme: 'bootstrap-5' %>
+    </div>
+  </div>
+
+</div>

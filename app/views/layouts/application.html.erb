@@ -5,12 +5,31 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/40873ce634.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--スライドショーのレイアウトを制御する独自のCSSを読み込み-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
   </head>
 
-  <body>
-    <%= yield %>
+  <body data-turbolinks=false>
+    <%= render 'layouts/header' %>
+    <main class="min-vh-100" style="background:#fbfaf3">
+      <div class="container">
+        <%= render 'layouts/search' %>
+        <%= render 'layouts/flash' %>
+        <%= yield %>
+      </div>
+    </main>
+    <footer class="justify-center" style="background-color:#cc5e58;">
+      <%= render 'layouts/footer' %>
+    </footer>
+
+    <script>
+      // Modalで食材を新規投稿するための記述
+      // Listモデルの全てのレコードを取得し、それぞれのidとnameの値を取り出す。".to_json"でJSON形式の文字列に変換。
+      var lists = <%= raw List.all.map {|list| {value: list.id, text: list.name}}.to_json %>;
+　　</script>
+
   </body>
 </html>

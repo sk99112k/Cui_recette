@@ -1,0 +1,33 @@
+<header>
+  <nav class="navbar navbar-expand-lg" style="background-color:#cc5e58;">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span style="color:#fff; font-family: 'Sacramento', cursive; font-size:35px;">Cui Recette</span></a>
+      <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if member_signed_in? %>
+        <!--Memberログイン後のheader-->
+          <li><%= link_to "マイページ", member_path(current_member), class: 'nav-link text-white' %></li>
+          <li><%= link_to "新規投稿", new_recipe_path, class: 'nav-link text-white' %></li>
+          <li><%= link_to "ユーザー", members_path, class: 'nav-link text-white' %></li>
+          <li><%= link_to "レシピ", recipes_path, class: 'nav-link text-white' %></li>
+          <li><%= link_to "食材リスト", lists_path, class: 'nav-link text-white' %></li>
+        <% elsif admin_signed_in? %>
+        <!--Adminログイン後のheader-->
+          <li><%= link_to "ユーザー", admin_root_path, class: 'nav-link text-white' %></li>
+          <li><%= link_to "レシピ", admin_recipes_path, class: 'nav-link text-white' %></li>
+          <li><%= link_to "ジャンル", admin_genres_path, class: 'nav-link text-white' %></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-white' %></li>
+        <% else %>
+        <!--ログイン前header-->
+          <li><%= link_to "About", about_path, class: 'nav-link text-white' %></li>
+          <li><%= link_to "新規登録", new_member_registration_path, class: 'nav-link text-white' %></li>
+          <li><%= link_to "ログイン", new_member_session_path, class: 'nav-link text-white' %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

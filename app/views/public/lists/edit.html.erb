@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto offset-sm-1">
+      <h3 class="m-5">食材編集</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
+
+      <%= form_with model: @list do |f| %>
+      <div class="field mt-4 text-center">
+        <table class="table table-borderless">
+          <tr>
+            <td><%= f.label :name, "食材" %></td>
+            <td><%= f.text_field :name, autofocus: true %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :name_kana, "食材(ﾌﾘｶﾞﾅ)" %></td>
+            <td><%= f.text_field :name_kana, placeholder: "ﾆﾝｼﾞﾝ" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :supplier, "仕入れ先", autocomplete: "supplier" %></td>
+            <td><%= f.text_field :supplier %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :lot, "仕入れロット数" %></td>
+            <td>
+              <%= f.text_field :lot, size: 13 %>
+              <%= f.text_field :unit, size: 5 %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= f.label :price, "値段" %></td>
+            <td><%= f.text_field :price, size: 18 %> 円</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "編集" %></td>
+          </tr>
+        </table>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <div class="error"><%= render 'layouts/error', object: @list %></div>
+    </div>
+  </div>
+</div>

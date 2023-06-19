@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto offset-sm-1">
+      <h3 class="m-5">管理者ログイン</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-xs-12"  style="background:#F5DEB3; border-radius: 20px;">
+
+
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field mt-4 text-center">
+        <table class="table table-borderless">
+          <tr>
+            <td><%= f.label :email, "メールアドレス" %></td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "aaa@bbb" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :password, "パスワード" %></td>
+            <td><%= f.password_field :password, autocomplete: "current-password", placeholder: "・・・・・・" %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "ログイン" %></td>
+          </tr>
+        </table>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div class="mx-auto offset-sm-1 mt-4">
+      <%= link_to "管理者ゲストログイン", admin_guests_guest_sign_in_path, method: :post, class: "btn btn-link" %>
+    </div>
+  </div>
+</div>

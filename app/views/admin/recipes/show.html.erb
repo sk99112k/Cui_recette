@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto m-5">
+      <h3><%= @recipe.title %></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 px-sm-0 mx-auto mb-5">
+      <p class="text-left">コメント</p>
+      <table class="table table-hover">
+      <% @recipe.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= comment.member.name %></td>
+          <td><%= comment.body %></td>
+          <td><%= link_to "削除", admin_recipe_comment_path(comment.recipe,comment), method: :delete, :style=> "color: #DC143C;", class: "btn btn-link", "data-confirm" => "本当に削除しますか？" %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

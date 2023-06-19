@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      <table class="table table-borderless">
+        <tr>
+          <td>
+            <%= @recipe.created_at.strftime('%Y/%m/%d') %>
+            <span class="ml-4"><%= @recipe.genre.name %></span>
+          </td>
+        </tr>
+        <tr>
+          <td><%= image_tag @recipe.get_image(320,320) %></td>
+        </tr>
+        <tr>
+          <th style="font-size:30px; display:flex;">
+            <div id="book_mark_btn_<%= @recipe.id %>">
+              <!--BookMark-->
+              <%= render 'public/book_marks/book_mark', recipe: @recipe %>
+            </div>
+            <p class="ml-5">
+              <%= @recipe.title %>
+            </p>
+          </th>
+        </tr>
+        <tr>
+          <td style="text-align:center;">
+            <% if current_member == @recipe.member %>
+            <%= link_to "編集", edit_recipe_path(@recipe), class: "mr-5" %>
+            <%= link_to "削除", recipe_path(@recipe), :style=> "color: #DC143C;", method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-lg-8 offset-md-1">
+      <h5 class="name mt-5 mb-3 ml-5">
+        <span>材料</span>
+      </h5>
+      <div style="display:flex;">
+        <div class="name_title ml-5">
+          <ul>
+            <% @recipe.list_storages.each do |list_storage| %>
+            <li>
+              <%= link_to list_path(list_storage.list.id), :style=> "color: #017bfe;" do %>
+                <%= list_storage.list.name %>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="name_quantity ml-5">
+          <ul style="list-style:none">
+            <% @recipe.list_storages.each do |list_storage| %>
+            <li><%= list_storage.quantity %><%= list_storage.unit %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <table class="table my-5">
+      <tr>
+        <th>作り方</th>
+        <td class="text-left"><%= simple_format(@recipe.body) %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="row mt-5" id="comment">
+    <!--コメント-->
+    <%= render 'public/comments/comment', recipe: @recipe, comment: @comment %>
+  </div>
+</div>
