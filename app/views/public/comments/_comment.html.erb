@@ -1,6 +1,8 @@
 <div class="col-8">
   <table class="table table-borderless table-hover">
-    <!--<tr>コメント</tr>-->
+  <!--コメント数が０件の時にdivを追加して高さを出す。(こめんとのformがレシピのbodyとかぶるのを防ぐ)-->
+  <% if recipe.comments.count != 0%>
+
     <% recipe.comments.each do |comment| %>
     <tr>
       <!--check box-->
@@ -35,8 +37,12 @@
         });
       });
     </script>
-
     <% end %>
+
+  <%else%>
+    <div style="height: 50px;"></div>
+  <%end%>
+
   </table>
 </div>
 
