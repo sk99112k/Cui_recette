@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h4>BookMark一覧</h4>
+      <div class="mx-auto offset-sm-1">
+        <h3 class="m-5 text-center">検索結果</h3>
+        <%= render 'public/recipes/recipe', recipes: @recipes %>
+      </div>
     </div>
   </div>
-  <%= render 'public/recipes/recipe', recipes: @recipes %>
 </div>
