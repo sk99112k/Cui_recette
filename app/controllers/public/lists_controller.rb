@@ -25,7 +25,7 @@ class Public::ListsController < Public::ApplicationController
   end
 
   def index
-    @lists = List.order("name_kana").page(params[:page]).per(10)
+    @lists = List.order("name_kana").page(params[:page]).per(8)
   end
 
   def show
