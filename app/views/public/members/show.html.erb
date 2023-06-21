@@ -2,13 +2,15 @@
   <div class="row">
     <div class="col mx-auto offset-sm-1" style="display:flex;">
       <h3 class="m-5"><%= @member.name %> さん</h3>
-      <div class="col-3 ml-auto">
+      <div class="col-3 ml-auto m-4">
+        
       <% if current_member.name != "guestuser" %>
         <% if current_member == @member %>
-        <p><%= link_to "登録情報編集", edit_member_registration_path %>
+        <h6><%= link_to "登録情報編集", edit_member_registration_path %></h6>
         <% end %>
-      <% end %><br>
-      <%= link_to "BookMark一覧", member_book_marks_path(@member) %></p>
+      <% end %>
+      
+        <h6><%= link_to "BookMark一覧", member_book_marks_path(@member) %></h6>
       </div>
     </div>
   </div>
