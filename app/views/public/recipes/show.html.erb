@@ -3,9 +3,12 @@
     <div class="col-lg-3">
       <table class="table table-borderless">
         <tr>
+          <th><%= @recipe.genre.name %></th>
+        </tr>
+        <tr>
           <td>
             <%= @recipe.created_at.strftime('%Y/%m/%d') %>
-            <span class="ml-4"><%= @recipe.genre.name %></span>
+            <span class="ml-4"><%= @recipe.member.name %></span>
           </td>
         </tr>
         <tr>
