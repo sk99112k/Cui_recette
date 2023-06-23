@@ -65,7 +65,7 @@ class Public::RecipesController < Public::ApplicationController
   def is_matching_login_member
     recipe = Recipe.find(params[:id])
     if recipe.member_id != current_member.id
-      redirect_to recipes_path
+      redirect_to recipes_path, notice: '他人の編集画面へ遷移できません。'
     end
   end
 

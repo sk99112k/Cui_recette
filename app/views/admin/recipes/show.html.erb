@@ -16,9 +16,7 @@
           <td><%= comment.member.name %></td>
           <td><%= comment.body %></td>
           <td>
-            <% if current_admin.email != 'guest@example.com' %>
-              <%= link_to "削除", admin_recipe_comment_path(comment.recipe,comment), method: :delete, style: "color: #DC143C;", class: "btn btn-link", "data-confirm" => "本当に削除しますか？" %>
-            <% end %>
+            <%= link_to "削除", admin_recipe_comment_path(comment.recipe,comment), method: :delete, style: "color: #DC143C;", class: "btn btn-link", "data-confirm" => "本当に削除しますか？" %>
           </td>
         </tr>
       <% end %>

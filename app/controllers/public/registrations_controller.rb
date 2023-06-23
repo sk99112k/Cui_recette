@@ -3,6 +3,7 @@
 class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :ensure_guest_user, only: [:edit]
 
   # GET /resource/sign_up
   # def new
@@ -60,6 +61,12 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #アカウント編集後のリダイレクト先
   def after_update_path_for(resource)
     member_path(current_member)
+  end
+
+  def ensure_guest_user
+    if  current_member.name == "guestuser"
+      redirect_to members_path, notice: 'ゲストユーザーは編集画面へ遷移できません。'
+    end
   end
 
   # The path used after sign up for inactive accounts.
