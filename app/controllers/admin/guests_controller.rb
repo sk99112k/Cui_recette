@@ -6,7 +6,7 @@ class Admin::GuestsController < ApplicationController
     admin.password = SecureRandom.urlsafe_base64
     end
     sign_in(admin)
-    redirect_to admin_root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to admiCn_root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
 end
