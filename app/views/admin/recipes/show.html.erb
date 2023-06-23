@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto m-5">
+    <div class="mx-auto m-5 text-center">
       <h3><%= @recipe.title %></h3>
+      <p>作成者<span class="ml-5"><%= @recipe.member.name %></span></p>
     </div>
   </div>
 
@@ -14,7 +15,11 @@
           <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
           <td><%= comment.member.name %></td>
           <td><%= comment.body %></td>
-          <td><%= link_to "削除", admin_recipe_comment_path(comment.recipe,comment), method: :delete, :style=> "color: #DC143C;", class: "btn btn-link", "data-confirm" => "本当に削除しますか？" %></td>
+          <td>
+            <% if current_admin.email != 'guest@example.com' %>
+              <%= link_to "削除", admin_recipe_comment_path(comment.recipe,comment), method: :delete, style: "color: #DC143C;", class: "btn btn-link", "data-confirm" => "本当に削除しますか？" %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
       </table>
