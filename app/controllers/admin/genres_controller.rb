@@ -1,4 +1,5 @@
 class Admin::GenresController < Admin::ApplicationController
+  # before_action :new_guest, except: [:edit, :create]
 
   def index
     @genres = Genre.page(params[:page]).per(10)
