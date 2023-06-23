@@ -12,22 +12,24 @@
           <tr>
             <th>投稿日時</th>
             <th>レシピ名</th>
+            <th>作成者</th>
             <th>コメント数</th>
           </tr>
         </thead>
         <% @recipes.each do |recipe| %>
         <tbody>
           <tr>
-            <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.created_at.strftime('%Y/%m/%d') %><% end %></td>
-            <td><%= link_to admin_recipe_path(recipe), class: "btn btn-link" do %><%= recipe.title %><% end %></td>
-            <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.comments.count %> 件<% end %></td>
+            <td><%= recipe.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= link_to admin_recipe_path(recipe) do %><%= recipe.title %><% end %></td>
+            <td><%= recipe.member.name %></td>
+            <td><%= recipe.comments.count %> 件</td>
           </tr>
         </tbody>
         <% end %>
       </table>
-      
+
       <%= paginate @recipes, theme: 'bootstrap-5' %>
-      
+
     </div>
   </div>
 </div>
