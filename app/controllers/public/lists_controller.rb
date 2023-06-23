@@ -1,4 +1,5 @@
 class Public::ListsController < Public::ApplicationController
+  before_action :ensure_guest_user, only: [:edit]
 
   def new
     @list = List.new
@@ -49,6 +50,12 @@ class Public::ListsController < Public::ApplicationController
 
   def list_params
     params.require(:list).permit(:name, :name_kana, :supplier, :price, :lot, :unit)
+  end
+
+  def ensure_guest_user
+    if  current_member.name == "guestuser"
+      redirect_to lists_path, notice: 'ゲストユーザーは編集画面へ遷移できません。'
+    end
   end
 
 end
