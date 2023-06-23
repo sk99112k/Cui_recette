@@ -1,27 +1,27 @@
 <div class="row justify-content-center mb-5">
   <% recipes.each do |recipe| %>
-  <div class="card m-2  recipe_all" style="width:16rem; border-radius:20px;">
+  <div class="card m-2  recipe_all" style="width:9rem; border-radius:20px;">
     <div class="recipe_image">
       <%= link_to recipe_path(recipe.id) do %>
         <%= image_tag recipe.get_image(300, 300), class: "card-img-top img-fluid", style: "border-radius:20px 20px 0 0;" %>
       <% end %>
     </div>
     <div class="card-body">
-      <h5 class="card-title" style="display:flex;">
-        <div id="book_mark_btn_<%= recipe.id %>" style="font-size:36px;">
+      <h6 class="card-title" style="display:flex;">
+        <div id="book_mark_btn_<%= recipe.id %>" style="font-size:26px;">
           <!--BookMark-->
           <%= render 'public/book_marks/book_mark', recipe: recipe %>
         </div>
         <div class="recipe-title ml-3">
           <%= link_to recipe_path(recipe) do %>
-            <%= recipe.title %>
+            <%= recipe.title.truncate(5) %>
           <% end %>
         </div>
-      </h5>
-      <h6 class="card-text text-center">
+      </h6>
+      <p class="card-text text-center" style="font-size:12px;">
         <%= recipe.member.name %><br>
         <%= recipe.created_at.strftime('%Y/%m/%d') %>
-      </h6>
+      </p>
     </div>
   </div>
   <% end %>
