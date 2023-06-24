@@ -26,7 +26,7 @@
           </tr>
           <tr>
             <td style="width:30%;"><%= f.label :image, "写真" %></td>
-            <td style="width:70%;" class="text-left"><%= f.file_field :image, autofocus: true %></td>
+            <td style="width:70%;" class="text-left"><%= f.file_field :image, autofocus: true, accept: ".jpeg, .png" %></td>
           </tr>
           <tr>
             <td><%= f.label :title, "レシピ名", autocomplete: "title" %></td>
