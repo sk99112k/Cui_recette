@@ -1,8 +1,12 @@
+<div style="color: red;">
 <% if object.errors.any? %>
-  <%= object.errors.count %>件のエラーがあります
-  <ul>
+  <div style="font-size: 22px;">
+    <%= object.errors.count %>件のエラーがあります
+  </div>
+  <ul style="list-style:none">
     <% object.errors.full_messages.each do |message| %>
     <li><%= message %></li>
     <% end %>
   </ul>
 <% end %>
+</div>

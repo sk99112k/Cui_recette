@@ -2,7 +2,7 @@ class Public::RecipesController < Public::ApplicationController
   before_action :is_matching_login_member, only: [:edit, :update, :destroy]
 
   def index
-    @recipes = Recipe.all.page(params[:page]).per(6)
+    @recipes = Recipe.all.page(params[:page]).per(10)
     @genres = Genre.all
   end
 
@@ -48,7 +48,7 @@ class Public::RecipesController < Public::ApplicationController
   end
 
   def search
-    @recipes = Recipe.search(params[:search]).page(params[:page]).per(8)
+    @recipes = Recipe.search(params[:search]).page(params[:page]).per(12)
   end
 
   private
@@ -65,7 +65,7 @@ class Public::RecipesController < Public::ApplicationController
   def is_matching_login_member
     recipe = Recipe.find(params[:id])
     if recipe.member_id != current_member.id
-      redirect_to recipes_path
+      redirect_to recipes_path, notice: '他人の編集画面へ遷移できません。'
     end
   end
 

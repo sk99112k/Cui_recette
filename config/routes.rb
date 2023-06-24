@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :recipes, only: [:show, :index] do
       resources :comments, only: [:destroy]
     end
-    post '/guests/guest_sign_in' => 'guests#new_guest'
   end
 
   scope module: :public do

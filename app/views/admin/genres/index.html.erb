@@ -26,9 +26,7 @@
           <tr>
             <td><%= genre.name %></td>
             <td>
-              <% if current_admin.email != 'guest@example.com' %>
-                <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-link" %>
-              <% end %>
+              <%= link_to "編集する", edit_admin_genre_path(genre.id) %>
             </td>
           </tr>
         </tbody>
