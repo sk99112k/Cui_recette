@@ -40,3 +40,17 @@ header {
 main {
   padding-top: 80px; /* ヘッダーの高さに合わせて調整 */
 }
+
+
+// レシピ画像のサイズ指定
+.card-img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.recipe-show-img {
+  width: 350px;
+  height: 240px;
+  object-fit: cover;
+}
