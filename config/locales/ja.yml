@@ -18,7 +18,7 @@ ja:
       recipe:
         title: "レシピ名"
         body: "作り方"
-        # list_storages: "材料と分量"
+        list_storages: "材料と分量"
         genre: "ジャンル"
       member:
         email: "メールアドレス"
