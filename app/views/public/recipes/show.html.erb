@@ -45,7 +45,7 @@
           <ul>
             <% @recipe.list_storages.each do |list_storage| %>
             <li>
-              <%= link_to list_path(list_storage.list.id), style: "color: #017bfe;" do %>
+              <%= link_to list_path(list_storage.list.id) do %>
                 <%= list_storage.list.name %>
               <% end %>
             </li>
