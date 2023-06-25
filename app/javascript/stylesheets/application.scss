@@ -13,16 +13,16 @@
 
 // スライダーのためのcss
 .slider img {
-    width:100%;/*スライダー内の画像を横幅100%に*/
-    height:auto;
+    width: 100%;
+    height: auto;
 }
-// slickのJSで書かれるタグ内、スライド左右の余白調整
+// スライド左右の余白調整
 .slider .slick-slide {
-    margin:0 10px;/*スライド左右の余白調整*/
+    margin: 0 10px;
 }
 
 
-// コメントの取り消し銭を表示させるCSS
+// コメントの取り消し線を表示させるCSS
 .line-through {
   text-decoration: line-through;
 }
@@ -48,9 +48,14 @@ main {
   height: 100px;
   object-fit: cover;
 }
-
 .recipe-show-img {
   width: 350px;
   height: 240px;
   object-fit: cover;
+}
+
+
+// エラー時にformのレイアウトが崩れないようにする
+.field_with_errors {
+  display: contents;
 }
