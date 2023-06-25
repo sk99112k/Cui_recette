@@ -1,1 +1,1 @@
-$("#comment_check_btn_<%= comment.id %>").html("<%= j(render 'public/checks/comment_check', comment: comment, recipe: @recipe) %>");
+$("#comment_check_btn_<%= @comment.id %>").html("<%= j(render 'public/checks/comment_check', comment: @comment, recipe: @recipe) %>");
