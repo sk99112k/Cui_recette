@@ -1,11 +1,11 @@
 <% if current_member == comment.recipe.member %>
   <% if comment.checked_by?(current_member) %>
-    <%= link_to recipe_comment_checks_path(recipe,comment), method: :delete, remote: true do %>
+    <%= link_to recipe_comment_checks_path(recipe,comment), method: :delete, remote: true, id: "comment_check_btn_#{comment.id}" do %>
       <i class="fas fa-check-circle fa-lg" style="color: #f44850;"></i>
     <% end %>
   <% else %>
-    <%= link_to recipe_comment_checks_path(recipe,comment), method: :post, remote: true do %>
-      <i class="far fa-circle fa-lg" style="color: black;"></i>
+    <%= link_to recipe_comment_checks_path(recipe,comment), method: :post, remote: true, id: "comment_check_btn_#{comment.id}"  do %>
+      <i class="far fa-circle fa-lg" style="color: #000;"></i>
     <% end %>
   <% end %>
 <% end %>
