@@ -92,3 +92,4 @@ class Public::RecipesController < Public::ApplicationController
   end
 
 end
+
