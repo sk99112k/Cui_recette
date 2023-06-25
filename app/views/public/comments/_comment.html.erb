@@ -6,7 +6,7 @@
     <% recipe.comments.each do |comment| %>
     <tr>
       <!--check box-->
-      <td id="comment_check_btn_<%= comment.id %>">
+      <td>
         <%= render 'public/checks/comment_check', comment: comment, recipe: recipe %>
       </td>
       <td><span id="comment_created_at_<%= comment.id %>" class="<%= comment.checked_by?(current_member) ? 'line-through' : '' %>"><%= comment.created_at.strftime('%m/%d')%></span></td>

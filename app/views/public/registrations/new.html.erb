@@ -10,7 +10,7 @@
       <%= render "public/shared/error_messages", resource: resource %>
       <div style="background:#F5DEB3; border-radius: 20px;">
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <div class="field mt-4 text-center">
           <table class="table table-borderless">
             <tr>
@@ -34,7 +34,8 @@
               <td><%= f.submit "新規登録" %></td>
             </tr>
           </table>
-        <% end %>
+          <% end %>
+
         </div>
       </div>
     </div>
