@@ -21,17 +21,17 @@ class Public::RecipesController < Public::ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
 
-    # 子モデルがない場合hバリでションエラ-とする
+    # 子モデルがない場合はバリデションエラ-とする
     if recipe_params[:list_storages_attributes].present?
       key = recipe_params[:list_storages_attributes].keys.first
       list_storage_params = recipe_params[:list_storages_attributes][key]
       list_storage_params.delete('_destroy')
-      #formはあるが、入力されていない時
+      #formに入力されていない時
       # is_list_storage_valid = @recipe.list_storages.new(list_storage_params).valid?
       first_list_id = recipe_params[:list_storages_attributes][key]["list_id"]
-    else
-      #formがない時
-      is_list_storage_valid = false
+    # else
+    #   #formがない時
+    #   is_list_storage_valid = false
     end
 
     @recipe.member = current_member
