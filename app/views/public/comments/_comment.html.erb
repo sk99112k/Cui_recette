@@ -1,12 +1,12 @@
 <div class="col-8">
   <table class="table table-borderless table-hover">
-  <!--コメント数が０件の時にdivを追加して高さを出す。(こめんとのformがレシピのbodyとかぶるのを防ぐ)-->
-  <% if recipe.comments.count != 0%>
+  <!--コメント数が０件の時にdivを追加して高さを出す。(formがレシピのbodyとかぶるのを防ぐ)-->
+  <% if recipe.comments.count != 0 %>
 
     <% recipe.comments.each do |comment| %>
     <tr>
       <!--check box-->
-      <td id="comment_check_btn_<%= comment.id %>">
+      <td>
         <%= render 'public/checks/comment_check', comment: comment, recipe: recipe %>
       </td>
       <td><span id="comment_created_at_<%= comment.id %>" class="<%= comment.checked_by?(current_member) ? 'line-through' : '' %>"><%= comment.created_at.strftime('%m/%d')%></span></td>

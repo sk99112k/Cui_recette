@@ -3,7 +3,7 @@
 class Public::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
-  before_action :ensure_guest_user, only: [:edit]
+  before_action :ensure_guest_user, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -65,7 +65,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   def ensure_guest_user
     if  current_member.name == "guestuser"
-      redirect_to members_path, notice: 'ゲストユーザーは編集画面へ遷移できません。'
+      redirect_to member_path(current_member), notice: 'ゲストユーザーの情報を更新することはできません。'
     end
   end
 

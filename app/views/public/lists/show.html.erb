@@ -4,6 +4,7 @@
       <h3 class="m-5"><%= @list.name %></h3>
     </div>
   </div>
+  
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
@@ -29,11 +30,12 @@
       </div>
     </div>
   </div>
+  
   <div class="col">
     <div class="text-center">
-    <% if current_member.name != "guestuser" %>
-      <div class="edit m-5" style="display: inline-block;"><%= link_to "編集", edit_list_path(@list), class: "btn btn-link" %></div>
-    <% end %>
+      <div class="edit m-5" style="display: inline-block;">
+        <%= link_to "編集", edit_list_path(@list), class: "btn btn-link" %>
+      </div>
     </div>
   </div>
 </div>

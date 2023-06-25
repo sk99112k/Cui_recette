@@ -4,12 +4,10 @@
       <h3 class="m-5"><%= @member.name %> さん</h3>
       <div class="col-3 ml-auto m-4">
         
-      <% if current_member.name != "guestuser" %>
         <% if current_member == @member %>
         <h6><%= link_to "登録情報編集", edit_member_registration_path %></h6>
         <% end %>
-      <% end %>
-      
+
         <h6><%= link_to "BookMark一覧", member_book_marks_path(@member) %></h6>
       </div>
     </div>

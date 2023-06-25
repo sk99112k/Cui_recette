@@ -4,5 +4,19 @@
       <h3 class="m-5">食材新規投稿</h3>
     </div>
   </div>
-  <%= render 'public/lists/list_form', list: @list %>
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
+      <%= form_with model: @list do |f| %>
+        <%= render 'public/lists/list_form', f: f %>
+      <% end %>
+    </div>
+
+    <div class="col-md-3">
+      <div class="error">
+        <%= render 'layouts/error', object: @list %>
+      </div>
+    </div>
+  </div>
 </div>

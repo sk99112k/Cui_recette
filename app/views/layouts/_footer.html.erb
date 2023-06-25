@@ -1,16 +1,7 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row" style="padding: 10px;">
     <div class="col-4">
       <p>©Cui-Recette</p>
-    </div>
-    <div class="col-3 ml-auto">
-      <div class="logout">
-        <% if member_signed_in? %>
-        <!--Memberログイン中のみ表示させる-->
-          <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class: 'nav-link text-white' %>
-        <% else %>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
