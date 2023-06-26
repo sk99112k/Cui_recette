@@ -9,16 +9,16 @@
         </div>
       </td>
     </tr>
-    
+
     <tr>
       <td style="width:30%;"><%= f.label :image, "写真" %></td>
-      <td style="width:70%;" class="text-left"><%= f.file_field :image, autofocus: true, accept: ".jpeg, .png" %></td>
+      <td style="width:70%;" class="text-left"><%= f.file_field :image, autofocus: true, accept: ".jpeg, .png, .jpg" %></td>
     </tr>
     <tr>
       <td><%= f.label :title, "レシピ名", autocomplete: "title" %></td>
       <td><%= f.text_field :title, class: "w-100" %></td>
     </tr>
-    
+
     <tr class="details">
       <td><%= f.label :list_id, '食材' %></td>
       <td class="list_storage_forms text-left">
@@ -48,12 +48,12 @@
         <%= f.fields_for :list_storages do |f| %>
           <%= render 'list_storage_fields', ls: f %>
         <% end %>
-        
+
         <!--formを追加する場所-->
         <div id="list_storage-forms"></div>
       </td>
     </tr>
-    
+
     <tr>
       <td><%= f.label :genre_id, "ジャンル" %></td>
       <td class="text-left"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "ジャンルを選択"} %></td>

@@ -20,7 +20,10 @@ ja:
         body: "作り方"
         list_storages: "材料と分量"
         genre: "ジャンル"
+      genre:
+        name: "ジャンル名"
       member:
+        password: "パスワード"
         email: "メールアドレス"
         name: "名前"
       comment:
