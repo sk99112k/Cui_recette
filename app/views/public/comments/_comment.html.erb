@@ -49,7 +49,7 @@
 <div class="col-4" style="position:absolute; right:0px; bottom:5px;">
 <%= form_with model: [recipe,comment], url:recipe_comments_path(recipe,comment), local: false, class: "form-inline mt-auto d-flex align-items-end", method: :post do |f| %>
   <%= f.text_area :body, rows: '3', placeholder: "コメント" %>
-  <%= f.submit "作成" %>
+  <%= f.submit "作成", class: "ml-3" %>
 <% end %>
 </div>
 
