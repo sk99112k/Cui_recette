@@ -7,7 +7,7 @@ class List < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :supplier
-    validates :unit
+    validates :kg_price
     validates :name_kana, format: { with: /\A[ｧ-ﾝﾞﾟ]+\z/, message: 'は半角ｶﾀｶﾅで入力して下さい'}
     # "numericality"オプション. "allow_blank: true"空欄の場合にはバリデーションをスキップ
     validates :lot, numericality: { allow_blank: true, message: 'は数値で入力して下さい' }
