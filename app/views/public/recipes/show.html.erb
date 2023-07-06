@@ -43,7 +43,7 @@
         <div class="cost col-5" style="color:red;">
           <% total_material_cost = 0 %>
           <% @recipe.lists.each do |list| %>
-          <% total_material_cost += list.material_cost %>
+            <% total_material_cost += list.material_cost %>
           <% end %>
           原価 <%= total_material_cost %> 円
         </div>
