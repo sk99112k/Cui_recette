@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-4">
       <table class="table table-borderless">
         <tr>
           <th><%= @recipe.genre.name %></th>
@@ -36,11 +36,20 @@
       </table>
     </div>
 
-    <div class="col-lg-8 offset-md-1">
-      <h4 class="name mt-5 mb-3 ml-5">
-        <span>材料</span>
+    <div class="col-lg-8">
+      <h4 class="name m-5" style="display:flex;">
+        <span class="col-6">材料</span>
+        <!--レシピ原価の合計-->
+        <div class="cost col-5" style="color:red;">
+          <% total_material_cost = 0 %>
+          <% @recipe.lists.each do |list| %>
+          <% total_material_cost += list.material_cost %>
+          <% end %>
+          原価 <%= total_material_cost %> 円
+        </div>
       </h4>
-      <div style="display:flex; font-size:20px;">
+
+      <div class="mt-4" style="display:flex; font-size:20px;">
         <div class="name_title ml-5">
           <ul>
             <% @recipe.list_storages.each do |list_storage| %>
@@ -52,17 +61,22 @@
             <% end %>
           </ul>
         </div>
-        <div class="name_quantity ml-5">
+
+        <div class="name_quantity mx-5">
           <ul style="list-style:none">
             <% @recipe.list_storages.each do |list_storage| %>
             <li><%= list_storage.quantity %> kg</li>
             <% end %>
           </ul>
         </div>
-      </div>
-      <div class="cost m-5" style="color:red; display:flex;">
-        <div class="mr-3">原価</div>
-        <div><%= %> 円</div>
+
+        <div class="cost ml-5 ">
+          <ul style="list-style:none">
+            <% @recipe.lists.each do |list| %>
+            <li><%= list.material_cost %> 円</li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
 

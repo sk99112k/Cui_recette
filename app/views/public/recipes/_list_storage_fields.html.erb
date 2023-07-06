@@ -1,6 +1,5 @@
 <div class="nested-fields text-left">
   <div class="field">
-    <!--link_to_add_associationのform_nameで指定した名前。(初期値 : f)-->
     <%= ls.collection_select :list_id, List.order("name_kana"), :id, :name, {prompt: "食材を選択"}, class: 'select_list' %>
     <%= ls.label :quantity, '分量', class: 'ml-3' %>
     <%= ls.text_field :quantity, placeholder: "0.2", size: "5" %> kg
