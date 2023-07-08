@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-4">
       <table class="table table-borderless">
         <tr>
           <th><%= @recipe.genre.name %></th>
@@ -36,30 +36,29 @@
       </table>
     </div>
 
-    <div class="col-lg-8 offset-md-1">
-      <h4 class="name mt-5 mb-3 ml-5">
-        <span>材料</span>
-      </h4>
-      <div style="display:flex; font-size:20px;">
-        <div class="name_title ml-5">
-          <ul>
+    <div class="col-lg-8">
+      <table class="table table-borderless ml-5" style="font-size:26px;">
+        <tr>
+          <th>材料</th>
+          <th style="color:red;">
+            <% total_cost = 0 %>
             <% @recipe.list_storages.each do |list_storage| %>
-            <li>
-              <%= link_to list_path(list_storage.list.id) do %>
-                <%= list_storage.list.name %>
-              <% end %>
-            </li>
+              <% total_cost += list_storage.cost %>
             <% end %>
-          </ul>
-        </div>
-        <div class="name_quantity ml-5">
-          <ul style="list-style:none">
-            <% @recipe.list_storages.each do |list_storage| %>
-            <li><%= list_storage.quantity %> <%= list_storage.unit %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+            原価 <%= total_cost %> 円
+          </th>
+        </tr>
+      </table>
+
+      <% @recipe.list_storages.each do |list_storage| %>
+      <table class="table table-borderless table-sm ml-5" style="font-size:18px;">
+        <tr>
+          <td style="width: 40%"><%= link_to list_storage.list.name, list_path(list_storage.list.id) %></td>
+          <td><%= list_storage.quantity %> kg</td>
+          <td><%= list_storage.cost %> 円</td>
+        </tr>
+      </table>
+      <% end %>
     </div>
 
     <table class="table my-5">

@@ -48,7 +48,7 @@ class Public::ListsController < Public::ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:name, :name_kana, :supplier, :price, :lot, :unit)
+    params.require(:list).permit(:name, :name_kana, :supplier, :price, :lot, :kg_price)
   end
 
 end

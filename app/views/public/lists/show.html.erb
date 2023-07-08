@@ -4,7 +4,7 @@
       <h3 class="m-5"><%= @list.name %></h3>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8 col-xs-12" style="background:#F5DEB3; border-radius: 20px;">
@@ -16,21 +16,23 @@
               <th>仕入れ先</th>
               <th>仕入れロット数</th>
               <th>値段</th>
+              <th>1kgあたりの値段</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><%= @list.name %></td>
               <td><%= @list.supplier %></td>
-              <td><%= @list.lot %> <%= @list.unit %></td>
+              <td><%= @list.lot %> kg</td>
               <td><%= @list.price %> 円</td>
+              <td><%= @list.kg_price %> 円</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-  
+
   <div class="col">
     <div class="text-center">
       <div class="edit m-5" style="display: inline-block;">
