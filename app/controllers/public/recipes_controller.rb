@@ -77,7 +77,7 @@ class Public::RecipesController < Public::ApplicationController
 
   def recipe_params
     # "cocoon" (:id, :_destroyをつけることで、編集と削除が可能になる)
-    params.require(:recipe).permit(:title, :body, :image, :genre_id, list_storages_attributes: [:list_id, :id, :quantity, :_destroy])
+    params.require(:recipe).permit(:title, :body, :share, :image, :genre_id, list_storages_attributes: [:list_id, :id, :quantity, :_destroy])
   end
 
   def search_params

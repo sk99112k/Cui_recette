@@ -87,7 +87,7 @@ recipe = Recipe.create!(
            ２、人参、玉ねぎ、じゃがいもも炒めて、玉ねぎに火が通ったら水を２L加えて2時間ほど煮込む。
            ３、カレールーをあらかじめお湯で溶かしておき、２に入れる。
            ４、1時間ほど煮込む。',
-    genre_id: genre[0].id, member_id: member[0].id,
+    genre_id: genre[0].id, member_id: member[0].id, share: '10',
     image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/curry.jpg"), filename: "curry.jpg")},
 
     {title: 'パスタ',
@@ -97,7 +97,7 @@ recipe = Recipe.create!(
            ４、アオリイカはフライパンで炒める
            ５、茹でたスパゲッティを２に入れて混ぜ合わせる。
            ６、お皿に盛り付けて完成',
-    genre_id: genre[2].id, member_id: member[0].id,
+    genre_id: genre[2].id, member_id: member[0].id, share: '1',
     image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/past.jpg"), filename: "past.jpg")},
 
     {title: '麻婆豆腐',
@@ -105,7 +105,7 @@ recipe = Recipe.create!(
            ２、ひき肉に火が通ったら鶏ガラスープを入れ沸騰させる。
            ３、２の火を止めて、水で解いた片栗粉を入れて豆腐が潰れないように混ぜる。
            ４、火をつけて一度沸騰させ、とろみが出たら完成',
-    genre_id: genre[4].id, member_id: member[0].id},
+    genre_id: genre[4].id, member_id: member[0].id, share: '3'},
 
     {title: '寿司(車海老)',
     body: '寿司酢を作る
@@ -120,7 +120,7 @@ recipe = Recipe.create!(
            ４、形を整形して完成
 
            米を丸める時に強く握りすぎない。',
-    genre_id: genre[1].id, member_id: member[0].id,
+    genre_id: genre[1].id, member_id: member[0].id, share: '10',
     image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/sushi.jpg"), filename: "sushi.jpg")},
 
     {title: 'アスパラとシーフードのチーズリゾット',
@@ -130,7 +130,7 @@ recipe = Recipe.create!(
            ４、牛乳と鶏がらスープを入れ、そこにお米を入れて沸騰させる。
            ５、粉チーズをふりかけて混ぜる
            ６、お皿に乗せて完成',
-    genre_id: genre[2].id, member_id: member[1].id,
+    genre_id: genre[2].id, member_id: member[1].id, share: '2',
     image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/risotto.jpg"), filename: "risotto.jpg")},
 
     {title: '鮎の塩焼き',
@@ -144,7 +144,7 @@ recipe = Recipe.create!(
            ３、焼き台で遠火の中火でじっくり焼く。
 
            蓼酢をつけながらお召し上がりください。',
-    genre_id: genre[1].id, member_id: member[1].id,
+    genre_id: genre[1].id, member_id: member[1].id, share: '2',
     image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/ayu.jpg"), filename: "ayu.jpg")},
 
     {title: 'パテ・ド・カンパーニュ',
@@ -154,7 +154,7 @@ recipe = Recipe.create!(
            ４、１に詰めて、はみ出てる網脂で包む。
            ５、上にタイム、ローリエを乗せる。
            ６、上にアルミホイルを被せ、湯煎しながら１８０度で1時間焼く。',
-    genre_id: genre[3].id, member_id: member[1].id,
+    genre_id: genre[3].id, member_id: member[1].id, share: '15',
     image: ActiveStorage::Blob.create_and_upload!(io: File.open("db/fixtures/pate.jpg"), filename: "pate.jpg")}
   ]
 )
@@ -186,40 +186,40 @@ ListStorage.create!(
     {list_id: list[34].id, recipe_id: recipe[2].id, quantity: 0.3},
     # 寿司
     {list_id: list[5].id,  recipe_id: recipe[3].id, quantity: 0.1},
-    {list_id: list[15].id, recipe_id: recipe[3].id, quantity: 10},
+    {list_id: list[15].id, recipe_id: recipe[3].id, quantity: 0.5},
     {list_id: list[16].id, recipe_id: recipe[3].id, quantity: 0.02},
     {list_id: list[17].id,  recipe_id: recipe[3].id, quantity: 0.01},
     {list_id: list[18].id,  recipe_id: recipe[3].id, quantity: 0},
     # リゾット
-    {list_id: list[19].id, recipe_id: recipe[4].id, quantity: 1},
-    {list_id: list[20].id, recipe_id: recipe[4].id, quantity: 30},
-    {list_id: list[15].id, recipe_id: recipe[4].id, quantity: 0.5},
-    {list_id: list[14].id, recipe_id: recipe[4].id, quantity: 10},
-    {list_id: list[7].id, recipe_id: recipe[4].id, quantity: 1},
-    {list_id: list[8].id, recipe_id: recipe[4].id, quantity: 50},
-    {list_id: list[4].id, recipe_id: recipe[4].id, quantity: 20},
+    {list_id: list[19].id, recipe_id: recipe[4].id, quantity: 0.03},
+    {list_id: list[20].id, recipe_id: recipe[4].id, quantity: 0.05},
+    {list_id: list[15].id, recipe_id: recipe[4].id, quantity: 0.05},
+    {list_id: list[14].id, recipe_id: recipe[4].id, quantity: 0.01},
+    {list_id: list[7].id, recipe_id: recipe[4].id, quantity: 0.003},
+    {list_id: list[8].id, recipe_id: recipe[4].id, quantity: 0.05},
+    {list_id: list[4].id, recipe_id: recipe[4].id, quantity: 0.02},
     {list_id: list[5].id,  recipe_id: recipe[4].id, quantity: 0.1},
     {list_id: list[34].id,  recipe_id: recipe[4].id, quantity: 0.05},
-    {list_id: list[35].id,  recipe_id: recipe[4].id, quantity: 0.1},
+    {list_id: list[35].id,  recipe_id: recipe[4].id, quantity: 0.005},
     # 鮎
-    {list_id: list[5].id, recipe_id: recipe[5].id, quantity: 10},
-    {list_id: list[16].id, recipe_id: recipe[5].id, quantity: 5},
-    {list_id: list[21].id, recipe_id: recipe[5].id, quantity: 3},
-    {list_id: list[22].id, recipe_id: recipe[5].id, quantity: 1},
-    {list_id: list[23].id, recipe_id: recipe[5].id, quantity: 20},
+    {list_id: list[22].id, recipe_id: recipe[5].id, quantity: 0.2},
+    {list_id: list[5].id, recipe_id: recipe[5].id, quantity: 0.01},
+    {list_id: list[16].id, recipe_id: recipe[5].id, quantity: 0.005},
+    {list_id: list[21].id, recipe_id: recipe[5].id, quantity: 0.003},
+    {list_id: list[23].id, recipe_id: recipe[5].id, quantity: 0.02},
     # パテドカンパーニュ
     {list_id: list[0].id, recipe_id: recipe[6].id, quantity: 0.3},
-    {list_id: list[7].id, recipe_id: recipe[6].id, quantity: 1},
-    {list_id: list[3].id, recipe_id: recipe[6].id, quantity: 1},
-    {list_id: list[1].id, recipe_id: recipe[6].id, quantity: 0.5},
+    {list_id: list[7].id, recipe_id: recipe[6].id, quantity: 0.01},
+    {list_id: list[3].id, recipe_id: recipe[6].id, quantity: 0.06},
+    {list_id: list[1].id, recipe_id: recipe[6].id, quantity: 0.08},
     {list_id: list[24].id, recipe_id: recipe[6].id, quantity: 0.15},
-    {list_id: list[25].id, recipe_id: recipe[6].id, quantity: 2},
+    {list_id: list[25].id, recipe_id: recipe[6].id, quantity: 0.001},
     {list_id: list[26].id, recipe_id: recipe[6].id, quantity: 0.15},
     {list_id: list[27].id, recipe_id: recipe[6].id, quantity: 0.15},
-    {list_id: list[28].id, recipe_id: recipe[6].id, quantity: 0},
+    {list_id: list[28].id, recipe_id: recipe[6].id, quantity: 0.001},
     {list_id: list[29].id, recipe_id: recipe[6].id, quantity: 0.02},
-    {list_id: list[30].id, recipe_id: recipe[6].id, quantity: 0},
-    {list_id: list[31].id, recipe_id: recipe[6].id, quantity: 0}
+    {list_id: list[30].id, recipe_id: recipe[6].id, quantity: 0.001},
+    {list_id: list[31].id, recipe_id: recipe[6].id, quantity: 0.001}
   ]
 )
 
