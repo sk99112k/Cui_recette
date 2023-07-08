@@ -38,6 +38,7 @@
 
     <div class="col-lg-8">
       <table class="table-sm ml-5 mt-5" style="font-size:18px;">
+        
         <tr style="font-size:26px;">
           <th>材料</th>
           <th><%= @recipe.share %> 人前</th>
@@ -52,6 +53,7 @@
           </th>
           <th style="color:red;">円</th>
         </tr>
+        
         <% @recipe.list_storages.each do |list_storage| %>
         <tr>
           <td style="width: 40%;"><%= link_to list_storage.list.name, list_path(list_storage.list.id) %></td>
@@ -61,6 +63,7 @@
           <td>円</td>
         </tr>
         <% end %>
+        
         <tr>
           <th></th>
           <th></th>
