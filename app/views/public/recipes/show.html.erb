@@ -37,47 +37,28 @@
     </div>
 
     <div class="col-lg-8">
-      <h4 class="name m-5" style="display:flex;">
-        <span class="col-6">材料</span>
-        <!--レシピ原価の合計-->
-        <div class="cost col-5" style="color:red;">
-          <% total_material_cost = 0 %>
-          <% @recipe.lists.each do |list| %>
-            <% total_material_cost += list.material_cost %>
-          <% end %>
-          原価 <%= total_material_cost %> 円
-        </div>
-      </h4>
-
-      <div class="mt-4" style="display:flex; font-size:20px;">
-        <div class="name_title ml-5">
-          <ul>
+      <table class="table table-borderless ml-5" style="font-size:26px;">
+        <tr>
+          <th>材料</th>
+          <th style="color:red;">
+            <% total_cost = 0 %>
             <% @recipe.list_storages.each do |list_storage| %>
-            <li>
-              <%= link_to list_path(list_storage.list.id) do %>
-                <%= list_storage.list.name %>
-              <% end %>
-            </li>
+              <% total_cost += list_storage.cost %>
             <% end %>
-          </ul>
-        </div>
+            原価 <%= total_cost %> 円
+          </th>
+        </tr>
+      </table>
 
-        <div class="name_quantity mx-5">
-          <ul style="list-style:none">
-            <% @recipe.list_storages.each do |list_storage| %>
-            <li><%= list_storage.quantity %> kg</li>
-            <% end %>
-          </ul>
-        </div>
-
-        <div class="cost ml-5 ">
-          <ul style="list-style:none">
-            <% @recipe.lists.each do |list| %>
-            <li><%= list.material_cost %> 円</li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
+      <% @recipe.list_storages.each do |list_storage| %>
+      <table class="table table-borderless table-sm ml-5" style="font-size:18px;">
+        <tr>
+          <td style="width: 40%"><%= link_to list_storage.list.name, list_path(list_storage.list.id) %></td>
+          <td><%= list_storage.quantity %> kg</td>
+          <td><%= list_storage.cost %> 円</td>
+        </tr>
+      </table>
+      <% end %>
     </div>
 
     <table class="table my-5">

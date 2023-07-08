@@ -15,9 +15,4 @@ class List < ApplicationRecord
     validates :price, numericality: { only_integer: true, allow_blank: true, message: 'は半角の整数値で入力して下さい' }
   end
 
-  # 原価
-  def material_cost
-    list_storages.sum { |list_storage| list_storage.quantity * list_storage.list.kg_price }
-  end
-
 end
