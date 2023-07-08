@@ -59,6 +59,10 @@
       <td class="text-left"><%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "ジャンルを選択"} %></td>
     </tr>
     <tr>
+      <td><%= f.label :share, "何人前" %></td>
+      <td class="text-left"><%= f.text_field :share, size: "8" %> 人前</td>
+    </tr>
+    <tr>
       <td><%= f.label :body, "作り方" %></td>
       <td><%= f.text_area :body, class: "w-100", rows: '8' %></td>
     </tr>
