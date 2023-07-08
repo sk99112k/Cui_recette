@@ -17,6 +17,7 @@ class Recipe < ApplicationRecord
   with_options presence: true do
     validates :title, length: { maximum: 50, message: 'は50字以内で入力して下さい' }
     validates :body
+    validates :share, numericality: { allow_blank: true, message: 'は数値で入力して下さい' }
   end
 
   def get_image(width, height)
