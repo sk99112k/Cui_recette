@@ -37,21 +37,22 @@
     </div>
 
     <div class="col-lg-8">
-      <table class="table table-borderless ml-5" style="font-size:26px;">
-        <tr>
+      <table class="table-sm ml-5 mt-5" style="font-size:18px;">
+        <tr style="font-size:26px;">
           <th>材料</th>
-          <th style="color:red;">
+          <th><%= @recipe.share %> 人前</th>
+          <th></th>
+          <th class="text-right" style="color:red;">
             <% total_cost = 0 %>
             <% @recipe.list_storages.each do |list_storage| %>
               <% total_cost += list_storage.cost %>
             <% end %>
-            原価 <%= total_cost %> 円
+            <% total_cost %>
+            1人前 <%= total_cost / @recipe.share %>
           </th>
+          <th style="color:red;">円</th>
         </tr>
-      </table>
-
-      <% @recipe.list_storages.each do |list_storage| %>
-      <table class="table-sm ml-5" style="font-size:18px;">
+        <% @recipe.list_storages.each do |list_storage| %>
         <tr>
           <td style="width: 40%;"><%= link_to list_storage.list.name, list_path(list_storage.list.id) %></td>
           <td class="text-right" style="width: 20%;"><%= list_storage.quantity %></td>
@@ -59,8 +60,15 @@
           <td class="text-right" style="width: 30%;"><%= list_storage.cost %></td>
           <td>円</td>
         </tr>
+        <% end %>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th class="text-right">合計 <%= total_cost %></th>
+          <th>円</th>
+        </tr>
       </table>
-      <% end %>
     </div>
 
     <table class="table my-5">
