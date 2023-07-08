@@ -14,14 +14,15 @@
     </tr>
     <tr>
       <td><%= f.label :lot, "仕入れロット数" %></td>
-      <td>
-        <%= f.text_field :lot, size: 13, placeholder: "3" %>
-        <%= f.text_field :unit, size: 5, placeholder: "kg" %>
-      </td>
+      <td><%= f.text_field :lot, size: 18, placeholder: "3" %> kg</td>
     </tr>
     <tr>
       <td><%= f.label :price, "値段" %></td>
-      <td><%= f.text_field :price, size: 18, placeholder: "1000" %> 円</td>
+      <td><%= f.text_field :price, size: 18, placeholder: "1200" %> 円</td>
+    </tr>
+    <tr>
+      <td><%= f.label :kg_price, "1kgあたりの値段" %></td>
+      <td><%= f.text_field :kg_price, size: 18, placeholder: "kgあたり 400" %> 円</td>
     </tr>
     <tr>
       <td></td>
