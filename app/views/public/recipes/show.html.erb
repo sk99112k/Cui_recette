@@ -1,15 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <table class="table table-borderless">
-        <tr>
-          <th><%= @recipe.genre.name %></th>
-        </tr>
-        <tr>
+      <table class=" table-borderless table-sm" style="font-size:20px;">
+        <tr class="text-center">
           <td>
+            <span class="mr-4">ジャンル</span>
+            <%= @recipe.genre.name %>
+          </td>
+        </tr>
+        <tr class="text-center">
+          <th>
             <%= @recipe.created_at.strftime('%Y/%m/%d') %>
             <span class="ml-4"><%= @recipe.member.name %></span>
-          </td>
+          </th>
         </tr>
         <tr>
           <td><%= image_tag @recipe.get_image(400,400), class: "recipe-show-img" %></td>
@@ -76,8 +79,10 @@
 
     <table class="table my-5">
       <tr>
-        <th>作り方</th>
-        <td class="text-left"><%= simple_format(@recipe.body) %></td>
+        <th style="font-size:22px;">作り方</th>
+      </tr>
+      <tr>
+        <td><%= simple_format(@recipe.body) %></td>
       </tr>
     </table>
   </div>
