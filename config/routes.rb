@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "homes#top"
-    resources :members, only: [:show]
+    resources :members, only: [:show, :edit, :update]
     resources :genres, only: [:create, :index, :edit, :update]
 
     resources :recipes, only: [:show, :index] do
@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
     resources :members ,only: [:show, :index] do
       get '/book_marks' => 'book_marks#book_marks'
+      collection do
+        patch '/withdraw' => 'members#withdraw'
+      end
     end
 
     resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
