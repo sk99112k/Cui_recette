@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <table class="table table-borderless" style="font-size:20px;">
+      <table class="table table-borderless">
         <tr>
-          <td><%= @recipe.genre.name %></td>
+          <th><%= @recipe.genre.name %></th>
         </tr>
         <tr>
-          <th>
+          <td>
             <%= @recipe.created_at.strftime('%Y/%m/%d') %>
             <span class="ml-4"><%= @recipe.member.name %></span>
-          </th>
+          </td>
         </tr>
         <tr>
           <td><%= image_tag @recipe.get_image(400,400), class: "recipe-show-img" %></td>
@@ -76,10 +76,8 @@
 
     <table class="table my-5">
       <tr>
-        <th style="font-size:22px;">作り方</th>
-      </tr>
-      <tr>
-        <td><%= simple_format(@recipe.body) %></td>
+        <th>作り方</th>
+        <td class="text-left"><%= simple_format(@recipe.body) %></td>
       </tr>
     </table>
   </div>
