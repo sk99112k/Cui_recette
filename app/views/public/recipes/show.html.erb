@@ -62,7 +62,7 @@
           <td style="width: 40%;"><%= link_to list_storage.list.name, list_path(list_storage.list.id) %></td>
           <td class="text-right" style="width: 20%;"><%= list_storage.quantity %></td>
           <td>kg</td>
-          <td class="text-right" style="width: 30%;"><%= list_storage.cost %></td>
+          <td class="text-right" style="width: 30%;"><%= (list_storage.cost).floor(1) %></td>
           <td>円</td>
         </tr>
         <% end %>
@@ -71,7 +71,7 @@
           <th></th>
           <th></th>
           <th></th>
-          <th class="text-right">合計 <%= total_cost %></th>
+          <th class="text-right">合計 <%= (total_cost).floor(2) %></th>
           <th>円</th>
         </tr>
       </table>
