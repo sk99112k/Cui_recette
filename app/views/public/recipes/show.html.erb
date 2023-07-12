@@ -1,11 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <table class="table table-borderless" style="font-size:20px;">
-        <tr>
-          <td><%= @recipe.genre.name %></td>
+      <table class=" table-borderless table-sm" style="font-size:20px;">
+        <tr class="text-center">
+          <td>
+            <span class="mr-4">ジャンル</span>
+            <%= @recipe.genre.name %>
+          </td>
         </tr>
-        <tr>
+        <tr class="text-center">
           <th>
             <%= @recipe.created_at.strftime('%Y/%m/%d') %>
             <span class="ml-4"><%= @recipe.member.name %></span>
