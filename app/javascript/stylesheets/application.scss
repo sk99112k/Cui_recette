@@ -58,13 +58,15 @@ main {
   display: contents;
 }
 
+
+// topぺーじのレスポンシブ対応
 #top .top_text {
+  padding: 40px;
   bottom: 25%;
-  right: 5%;
+  right: -10%;
   position: absolute;
   background-color: rgba(204,94,88,0.5);
   @media screen and (max-width: 780px) {
     position: unset;
-    
   }
 }
