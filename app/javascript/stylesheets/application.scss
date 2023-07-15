@@ -57,3 +57,14 @@ main {
 .field_with_errors {
   display: contents;
 }
+
+#top .top_text {
+  bottom: 25%;
+  right: 5%;
+  position: absolute;
+  background-color: rgba(204,94,88,0.5);
+  @media screen and (max-width: 780px) {
+    position: unset;
+    
+  }
+}
