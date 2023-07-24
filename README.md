@@ -37,6 +37,8 @@ https://docs.google.com/spreadsheets/d/1beDCCS08O2-0Ik3nAlKpgJ2EngM19sKJ5lFw5LC6
 https://docs.google.com/spreadsheets/d/1tC_O8seSuKfbPcqK-iTdzAg7ny14IrMaQBjyBxMuO8Q/edit#gid=0
 ### ワイヤーフレーム
 https://docs.google.com/presentation/d/12HKWt7LmuhMZbs4aFCOZOSZkD1VIYGFNd0W1kgDkrCI/edit#slide=id.g24ce8edb785_0_115
+### テスト仕様書
+https://docs.google.com/spreadsheets/d/1A1pgOoozkVEH6CbGzr5jSaocg65hdvbX/edit#gid=2072448154
 
 ## 開発環境
 - OS：Linux(CentOS)
