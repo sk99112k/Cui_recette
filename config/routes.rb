@@ -19,18 +19,13 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-
-    # devise_scope :member do
-    #   get '/members/sign_out' => 'sessions#destroy', as: :sign_out_member
-    # end
-
     root to: "homes#top"
     get "/about" => "homes#about"
     resources :lists, only: [:new, :create, :show, :index, :edit, :update]
     post '/create_list' => 'lists#create_list'
     get '/ajax_list' => 'lists#ajax_list'
 
-    resources :members ,only: [:show, :index] do
+    resources :members, only: [:show, :index] do
       get '/book_marks' => 'book_marks#book_marks'
       collection do
         patch '/withdraw' => 'members#withdraw'
