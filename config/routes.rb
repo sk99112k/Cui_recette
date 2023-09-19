@@ -20,9 +20,9 @@ Rails.application.routes.draw do
 
   scope module: :public do
 
-    devise_scope :member do
-      get '/members/sign_out' => 'sessions#destroy', as: :sign_out_member
-    end
+    # devise_scope :member do
+    #   get '/members/sign_out' => 'sessions#destroy', as: :sign_out_member
+    # end
 
     root to: "homes#top"
     get "/about" => "homes#about"
@@ -50,7 +50,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index] do
       get 'search'
     end
-    post '/guests/guest_sign_in' => 'guests#new_guest'
+    get '/guests/guest_sign_in' => 'guests#new_guest'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
